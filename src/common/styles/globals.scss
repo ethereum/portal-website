@@ -1,0 +1,289 @@
+@import './reset.scss';
+@import './variables.scss';
+@import './typography.scss';
+
+html,
+body,
+#__next {
+  height: 100%;
+  font-family: DM Sans, sans-serif;
+}
+
+body {
+  color: $white;
+  --icon-color: #{$white};
+  // background: linear-gradient(60deg, #0d0d20, #161627, #312046, #121212);
+  overflow-x: hidden;
+}
+
+$content-width: 1680px;
+$side-gap: 64px;
+$max-content-width: $content-width + ($side-gap * 2);
+
+.section {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(64px, 1fr) minmax(auto, 1680px) minmax(64px, 1fr);
+
+  @media (max-width: $screen-md) {
+    grid-template-columns: minmax(16px, 1fr) minmax(auto, 1680px) minmax(16px, 1fr);
+  }
+
+  > * {
+    grid-column: 2 / 3;
+  }
+
+  > .expand {
+    grid-column: 1 / 4;
+  }
+}
+
+.grid {
+  display: grid;
+  &.col-2 {
+    grid-template-columns: 1fr 1fr;
+
+    &.uneven-40 {
+      grid-template-columns: 40% 60%;
+    }
+  }
+}
+
+.clear-vertical {
+  padding: 32px 0px;
+
+  @media (max-width: $screen-md) {
+    padding: 24px 0px;
+  }
+}
+
+.primary {
+  font-family: 'Roboto';
+}
+
+.secondary {
+  font-family: 'Roboto Condensed';
+}
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 44px;
+  background: #e8e8e8;
+  box-shadow: 0px 2px 4px 1.8px rgba(0, 0, 0, 0.18);
+  height: 64px;
+  align-self: flex-start;
+  font-family: inherit;
+  font-size: 1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0px 24px;
+  color: black;
+  --icon-color: black;
+  cursor: pointer;
+
+  @media (max-width: $screen-md) {
+    height: 48px;
+    @include medium-text;
+    padding: 0 16px;
+  }
+
+  &:hover {
+    background: rgb(61, 61, 61);
+    color: rgb(209, 209, 209);
+    --icon-color: rgb(209, 209, 209);
+  }
+
+  &.xs {
+    height: 32px;
+    font-size: inherit;
+    padding: 0 12px;
+  }
+
+  &.sm {
+    height: 48px;
+    @include medium-text;
+    padding: 0 24px;
+  }
+
+  &.white {
+    background: white;
+
+    &:hover {
+      color: black;
+      --icon-color: black;
+    }
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+
+  &.generic {
+    font-weight: bold;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &.white-link {
+    color: white;
+    --icon-color: #{white};
+  }
+
+  &.hover-underline {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 50px;
+  background: white;
+  border: 1px solid black;
+  margin-right: 8px;
+  text-transform: uppercase;
+}
+
+.aspect {
+  position: relative;
+  height: 0;
+  padding-bottom: 56.25%;
+  width: 100%;
+
+  &.square {
+    padding-bottom: 100%;
+  }
+
+  > * {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.fade-in-up {
+  animation: fade-in-up 1s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+
+  &.fast {
+    animation-duration: 0.7s;
+  }
+  
+  &.delay {
+    opacity: 0;
+    animation-duration: 1s;
+    animation-delay: 2s;
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.icon {
+  * {
+    fill: var(--icon-color);
+  }
+}
+
+$standard-spacing: 2em;
+
+.margin {
+  &-top {
+    margin-top: $standard-spacing;
+
+    &-less {
+      margin-top: $standard-spacing / 2;
+    }
+  }
+
+  &-bottom {
+    margin-bottom: $standard-spacing;
+
+    &-less {
+      margin-bottom: $standard-spacing / 2;
+    }
+  }
+
+  &-left {
+    margin-left: $standard-spacing;
+
+    &-less {
+      margin-left: $standard-spacing / 2;
+    }
+  }
+
+  &-right {
+    margin-right: $standard-spacing;
+
+    &-less {
+      margin-right: $standard-spacing / 2;
+    }
+  }
+}
+
+.padding {
+  &-top {
+    padding-top: $standard-spacing;
+
+    &-less {
+      padding-top: $standard-spacing / 2;
+    }
+  }
+
+  &-bottom {
+    padding-bottom: $standard-spacing;
+
+    &-less {
+      padding-bottom: $standard-spacing / 2;
+    }
+  }
+
+  &-left {
+    padding-left: $standard-spacing;
+
+    &-less {
+      padding-left: $standard-spacing / 2;
+    }
+  }
+
+  &-right {
+    padding-right: $standard-spacing;
+
+    &-less {
+      padding-right: $standard-spacing / 2;
+    }
+  }
+}
+
+$border: 1px solid $monochrome-5;
+
+.border-top {
+  border-top: $border;
+}
+
+.border-bottom { 
+  border-bottom: $border;
+}
+
+.grey, .gray {
+  color: $monochrome-6;
+}

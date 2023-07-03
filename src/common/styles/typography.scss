@@ -1,0 +1,42 @@
+.page-header {
+    font-size: 54px;
+    font-weight: 500;
+    line-height: 90%;
+    letter-spacing: -1.08px;
+}
+
+.tiny-text {
+    @include tiny-text;
+}
+
+.small-text {
+    @include small-text;
+}
+
+.medium-text {
+    @include medium-text;
+}
+
+.big-text {
+    @include big-text;
+}
+
+.large-text {
+    @include large-text;
+}
+
+.extra-large-text {
+    @include extra-large-text;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.underline {
+    text-decoration: underline;
+}

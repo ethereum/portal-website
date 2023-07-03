@@ -1,0 +1,37 @@
+.content {
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+
+  &.black {
+    color: white;
+    background: black;
+
+    .number {
+      color: white;
+    }
+  }
+
+  &.grow-vertically {
+    min-height: 100vh;
+    height: auto;
+    max-height: none;
+  }
+
+  &.grow-naturally {
+    min-height: auto;
+  }
+
+  .number {
+    position: absolute;
+    right: 0px;
+    margin-top: 16px;
+    color: rgba(0, 0, 0, 0.10);
+
+    p {
+      margin-left: auto;
+      font-size: 64px;
+      letter-spacing: -1.28px;
+    }
+  }
+}
