@@ -157,8 +157,8 @@ const Home = () => {
             <p className="big-text">
               Ethereum Portal is an open source, multi-team research & development effort.{' '}
               <span className="grey">
-                If you're interested in helping to contribute towards the design and implementation, join the on-going
-                conversation
+                If you&apos;re interested in helping to contribute towards the design and implementation, join the
+                on-going conversation
               </span>{' '}
               on the Portal discord community.
             </p>
@@ -177,7 +177,9 @@ const Home = () => {
         <p>hehe</p>
         <p>haehea</p>
       </ContentBlock>
-      <ContentBlock number={2} id="contributors" color="black"></ContentBlock>
+      <ContentBlock number={2} id="contributors" color="black">
+        Content block 2
+      </ContentBlock>
       <ContentBlock number={3} id="resources">
         ContentBlock 3
       </ContentBlock>
