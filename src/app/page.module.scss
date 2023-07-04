@@ -193,6 +193,8 @@
     top: 0px;
     width: 100%;
     height: 100%;
+    overflow: hidden;
+    background: black;
 
     &:before {
       content: '';
@@ -201,12 +203,28 @@
       width: 100%;
       height: 100%;
       bottom: 0px;
+      z-index: 1;
     }
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    > div {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      transform: translateX(18vw) scale(1.05);
+      // height: 150% !important;
+      // max-width: 500px;
+      // transform: translateX(20vw);
+    }
+
+    canvas {
+      // height: 300% !important;
+      // width: 50% !important;
+      // max-height: 50vh !important;
+      // width: auto !important;
+      // max-height: 500px !important;
+      // height: 105% !important;
+      // width: auto !important;
+      // // height: 100%;
     }
   }
 }

@@ -12,6 +12,7 @@ import FooterLogo from 'common/assets/images/footer-logo.svg'
 import DiscordIcon from 'common/assets/icons/discord.svg'
 import HamburgerIcon from 'common/assets/icons/hamburger.svg'
 import GithubIcon from 'common/assets/icons/github.svg'
+import Spline from '@splinetool/react-spline'
 
 const menuItems = () => [
   {
@@ -132,7 +133,8 @@ const Home = () => {
       <ContentBlock id="get-started">
         <div className={css['hero']}>
           <div className={css['background']}>
-            <Image src={HeroSphere} alt="Futuristic Sphere" />
+            <Spline scene="https://prod.spline.design/UbLwthoAHBUOi3Ni/scene.splinecode" />
+            {/* <Image src={HeroSphere} alt="Futuristic Sphere" /> */}
           </div>
           <div className={css['center']}>
             <div className="section">
