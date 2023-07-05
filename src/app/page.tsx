@@ -199,9 +199,12 @@ const Home = () => {
           <p>haehea</p>
         </div>
       </ContentBlock>
-      {/* <ContentBlock number={4} id="blog">
-        ContentBlock 4
-      </ContentBlock> */}
+      <ContentBlock number={4} id="blog">
+        <div className="section padding-top padding-bottom">
+          <p>hehe</p>
+          <p>haehea</p>
+        </div>
+      </ContentBlock>
 
       <footer className={`${css['footer']} padding-top`}>
         <div className="section">
@@ -236,8 +239,8 @@ const Home = () => {
         <div className={css['meta']}>
           <div className="section">
             <div className={css['split']}>
-              <p className="tiny-text">© 2023. All rights reserved. Crafted with ❤️ in the ethers. </p>
-              <p className="tiny-text">Supported by Ethereum Foundation</p>
+              <p>© 2023. All rights reserved. Crafted with ❤️ in the ethers. </p>
+              <p>Supported by Ethereum Foundation</p>
             </div>
           </div>
         </div>
