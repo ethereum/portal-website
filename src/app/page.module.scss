@@ -32,7 +32,7 @@
   }
 
   @media (max-width: $screen-sm) {
-    top: 24px;
+    top: 16px;
   }
 
   .menu {
@@ -54,6 +54,7 @@
 
     .items {
       display: flex;
+      align-items: center;
 
       svg {
         font-size: 24px;
@@ -139,7 +140,6 @@
     flex-direction: column;
     justify-content: space-between;
 
-
     .top {
       flex-grow: 1;
       display: flex;
@@ -149,6 +149,9 @@
     }
 
     .bottom {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
       margin-top: 16px;
 
       svg {
@@ -162,6 +165,23 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
+  color: white;
+
+  @media (max-width: $screen-md) {
+    .center {
+      bottom: 10vh !important;
+      top: auto !important;
+    }
+
+    .logo-subtext {
+      font-size: 24px !important;
+      margin-top: 16px !important;
+    }
+
+    .bottom-left {
+      bottom: 16px !important;
+    }
+  }
 
   .center {
     position: absolute;
@@ -169,6 +189,10 @@
     width: 100%;
     top: 50%;
     left: 0%;
+
+    svg {
+      max-width: 80vw;
+    }
 
     .logo-subtext {
       margin-top: 32px;
@@ -182,6 +206,7 @@
   }
 
   .bottom-left {
+    z-index: 5;
     position: absolute;
     width: 100%;
     left: 0px;
@@ -198,10 +223,10 @@
 
     &:before {
       content: '';
-      background: radial-gradient(circle at 50% 200%, rgb(52, 255, 248, ) 0%, rgb(0, 123, 255, 0.7) 30%, rgba(2,0,36,0) 70%);
+      background: radial-gradient(circle at 50% 2600px, rgb(0 83 171 / 70%) 30%, rgba(2, 0, 36, 0) 70%);
       position: absolute;
       width: 100%;
-      height: 100%;
+      height: 1100px;
       bottom: 0px;
       z-index: 1;
     }
@@ -214,6 +239,18 @@
       // height: 150% !important;
       // max-width: 500px;
       // transform: translateX(20vw);
+
+      @media (max-width: $screen-md) {
+        transform: translateX(0vw);
+        height: 30vh;
+
+        canvas {
+          // width: 500px !important;
+          // height: 30vh !important;
+          // width: auto !important;
+          // transform: scale(0.6);
+        }
+      }
     }
 
     canvas {
@@ -232,6 +269,22 @@
 .hero-addendum {
   background: black;
   overflow-x: hidden;
+  position: relative;
+
+  @media (max-width: $screen-lg) {
+    .cta-links {
+      margin-top: 24px !important;
+      margin-bottom: 16px !important;
+    }
+
+    .left {
+      > * {
+        &:last-child {
+          display: none;
+        }
+      }
+    }
+  }
 
   .content {
     display: flex;
@@ -268,20 +321,61 @@
 
 .footer {
   position: relative;
-  padding-top: 84px;
   color: black;
-  overflow: hidden;
-  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(35,123,235,1) 100%, rgba(0,61,255,1) 100%);
+  // overflow: hidden;
+  // background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(35,123,235,1) 100%, rgba(0,61,255,1) 100%);
   // background: black;
   // background: radial-gradient(circle at 50% 200%, rgb(52, 255, 248, ) 0%, rgb(0, 123, 255, 0.7) 30%, rgba(2,0,36,0) 70%);
 
+  &:before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 130%;
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgb(76, 153, 253) 100%);
+  }
+
+  .header {
+    max-width: 600px;
+    font-size: 36px;
+    line-height: 107.023%;
+    letter-spacing: -0.72px;
+  }
+
   .footer-logo {
     max-width: 100%;
+    position: relative;
     display: flex;
 
     svg {
+      @media (min-width: $screen-lg) {
+        min-width: 100%;
+      }
+
       max-width: 100%;
       height: auto;
+    }
+  }
+
+  .vertical-menu-footer {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+    letter-spacing: -0.36px;
+  
+    .github-discord {
+      margin-top: 8px;
+      font-weight: 700;
+    }
+  
+    > * {
+      margin-bottom: 8px;
+  
+      &:last-child {
+        margin-bottom: 0px;
+      }
     }
   }
 
@@ -289,8 +383,9 @@
     width: 100%;
     z-index: 1;
     position: absolute;
-    bottom: 0px;
+    bottom: 4px;
     color: white;
+    @include tiny-text;
 
     .split {
       display: flex;

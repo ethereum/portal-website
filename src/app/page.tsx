@@ -10,6 +10,7 @@ import MainLogo from 'common/assets/images/main-logo.svg'
 import PortalTextLogo from 'common/assets/images/text-logo.svg'
 import FooterLogo from 'common/assets/images/footer-logo.svg'
 import DiscordIcon from 'common/assets/icons/discord.svg'
+import CrossIcon from 'common/assets/icons/cross.svg'
 import HamburgerIcon from 'common/assets/icons/hamburger.svg'
 import GithubIcon from 'common/assets/icons/github.svg'
 import Spline from '@splinetool/react-spline'
@@ -133,7 +134,12 @@ const Home = () => {
       <ContentBlock id="get-started">
         <div className={css['hero']}>
           <div className={css['background']}>
-            <Spline scene="https://prod.spline.design/UbLwthoAHBUOi3Ni/scene.splinecode" />
+            <Spline
+              scene="https://prod.spline.design/UbLwthoAHBUOi3Ni/scene.splinecode"
+              onLoad={application => {
+                application.setZoom(0.5)
+              }}
+            />
             {/* <Image src={HeroSphere} alt="Futuristic Sphere" /> */}
           </div>
           <div className={css['center']}>
@@ -176,14 +182,22 @@ const Home = () => {
         </div>
       </div>
       <ContentBlock number={1} id="portal">
-        <p>hehe</p>
-        <p>haehea</p>
+        <div className="section padding-top padding-bottom">
+          <p>hehe</p>
+          <p>haehea</p>
+        </div>
       </ContentBlock>
       <ContentBlock number={2} id="contributors" color="black">
-        Content block 2
+        <div className="section padding-top padding-bottom">
+          <p>hehe</p>
+          <p>haehea</p>
+        </div>
       </ContentBlock>
       <ContentBlock number={3} id="resources">
-        ContentBlock 3
+        <div className="section padding-top padding-bottom">
+          <p>hehe</p>
+          <p>haehea</p>
+        </div>
       </ContentBlock>
       {/* <ContentBlock number={4} id="blog">
         ContentBlock 4
@@ -191,11 +205,27 @@ const Home = () => {
 
       <footer className={`${css['footer']} padding-top`}>
         <div className="section">
-          <div className="grid col-2 uneven-40">
-            <p className="extra-large-text">Making the Ethereum Network lightweight and accessible.</p>
+          <div className="grid col-2 uneven-60">
+            <p className={`extra-large-text ${css['header']}`}>
+              Making the Ethereum Network lightweight and accessible.
+            </p>
 
-            <div className={css['vertical-menu']}>
-              <VerticalMenuItems />
+            <div className={css['vertical-menu-footer']}>
+              {menuItems().map((menuItem: any) => {
+                return (
+                  <Link className={menuItem.customClass} key={menuItem.text} href={menuItem.url}>
+                    {menuItem.text}
+                  </Link>
+                )
+              })}
+
+              <p className={css['github-discord']}>Github / Discord</p>
+
+              {/* <div className={css['github-discord']}>
+
+                <GithubIcon />
+                <DiscordIcon />
+              </div> */}
             </div>
           </div>
           <div className={css['footer-logo']}>
@@ -206,8 +236,8 @@ const Home = () => {
         <div className={css['meta']}>
           <div className="section">
             <div className={css['split']}>
-              <p className="small-text">© 2023. All rights reserved. Crafted with ❤️ in the ethers. </p>
-              <p className="small-text">Supported by Ethereum Foundation</p>
+              <p className="tiny-text">© 2023. All rights reserved. Crafted with ❤️ in the ethers. </p>
+              <p className="tiny-text">Supported by Ethereum Foundation</p>
             </div>
           </div>
         </div>
