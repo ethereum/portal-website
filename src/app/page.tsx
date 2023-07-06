@@ -135,11 +135,12 @@ const Home = () => {
         <div className={css['hero']}>
           <div className={css['background']}>
             <Spline
-              // scene="https://prod.spline.design/UbLwthoAHBUOi3Ni/scene.splinecode"
-              scene="https://prod.spline.design/03JSjbnhW8P41kDH/scene.splinecode"
-              // onLoad={application => {
-              //   application.setZoom(0.5)
-              // }}
+              scene="https://prod.spline.design/UbLwthoAHBUOi3Ni/scene.splinecode"
+              // scene="https://prod.spline.design/03JSjbnhW8P41kDH/scene.splinecode"
+              onLoad={application => {
+                console.log(application, 'application')
+                application.setZoom(0.5)
+              }}
             />
             {/* <Image src={HeroSphere} alt="Futuristic Sphere" /> */}
           </div>
