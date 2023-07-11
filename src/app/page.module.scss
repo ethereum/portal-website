@@ -294,3 +294,54 @@
     margin-bottom: 0px;
   }
 }
+
+.clients {
+  z-index: 2;
+
+  .portal-text-logo {
+    > * {
+      max-width: 60%;
+    }
+
+    * {
+      fill: #FFFFFF66;
+    }
+  }
+
+  .description {
+    max-width: 60%;
+  }
+
+  .client-cards {
+    display: flex;
+    width: 100%;
+    gap: 32px;
+
+    @media (max-width: $screen-md) {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    > * {
+      flex-grow: 1;
+    }
+  }
+
+  .header {
+    margin-top: 64px;
+    font-size: 240px;
+    font-weight: 500;
+    line-height: 90%;
+    letter-spacing: -4.8px;
+    
+    @media (max-width: $screen-md) {
+      margin-top: 32px;
+      font-size: 120px;
+    }
+
+    @media (max-width: $screen-sm) {
+      margin-top: 16px;
+      font-size: 64px;
+    }
+  }
+}

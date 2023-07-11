@@ -12,6 +12,8 @@ type ContentBlockProps = {
   number?: number
   organicHeight?: boolean
   unpadded?: boolean
+  backgroundImage?: StaticImageData
+  backgroundImageAlt?: string
 }
 
 const leftPadNumber = (number: number) => {
@@ -30,6 +32,15 @@ export const ContentBlock = (props: ContentBlockProps) => {
 
   return (
     <div className={className} id={props.anchor}>
+      {props.backgroundImage && (
+        <div className={css['content-background-image']}>
+          <Image
+            src={props.backgroundImage}
+            alt={props.backgroundImageAlt ? props.backgroundImageAlt : 'Background image'}
+          />
+        </div>
+      )}
+
       {props.number && (
         <div className={`${css['number']} section`}>
           <p>{leftPadNumber(props.number)}</p>
@@ -100,22 +111,39 @@ export const Accordion = (props: AccordionProps) => {
 
 /* Cards begin */
 type SquareCardProps = {
-  title: string
   children: ReactNode
 }
 
 export const SquareCard = (props: SquareCardProps) => {
   return (
-    <div className={`${css['square-card']}`}>
+    <div>
       <div className="aspect square">
-        <div className={css['square-card-inner-container']}>
-          <div className={css['card-content']}>
-            <p className={css['title']}>{props.title}</p>
-            {props.children}
-          </div>
-        </div>
+        <div className={css['square-card']}>{props.children}</div>
       </div>
     </div>
+  )
+}
+
+type SquareCardVariation1Props = {
+  title: string
+  github: string
+  meta: ReactNode
+  description: string
+}
+
+export const SquareCardVariation1 = (props: SquareCardVariation1Props) => {
+  return (
+    <SquareCard>
+      <div className={css['square-card-variation-1']}>
+        <div className={css['title']}>{props.title}</div>
+        <div className={css['meta']}>
+          <div className={css['github']}>Github</div>
+          <div className={css['meta-description']}>{props.meta}</div>
+        </div>
+
+        <div className={css['description']}>{props.description}</div>
+      </div>
+    </SquareCard>
   )
 }
 

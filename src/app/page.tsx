@@ -1,7 +1,14 @@
 'use client'
 import React from 'react'
 import css from './page.module.scss'
-import { ContentBlock, ContentHeader, Accordion, Cards, ImageCard, SquareCard } from 'common/components/content'
+import {
+  ContentBlock,
+  ContentHeader,
+  Accordion,
+  Cards,
+  ImageCard,
+  SquareCardVariation1,
+} from 'common/components/content'
 import Link from 'common/components/link'
 import MainLogo from 'common/assets/images/main-logo.svg'
 import PortalTextLogo from 'common/assets/images/text-logo.svg'
@@ -13,6 +20,7 @@ import CardImage3 from 'common/assets/images/image-3.png'
 import CardImage4 from 'common/assets/images/image-4.png'
 import ArrowDownLeftIcon from 'common/assets/icons/arrow-down-left.svg'
 import Spline from '@splinetool/react-spline'
+import ClientsBackground from 'common/assets/images/clients-background.png'
 
 const Home = () => {
   return (
@@ -98,29 +106,70 @@ const Home = () => {
           </Cards>
         </div>
       </ContentBlock>
-      <ContentBlock number={2} anchor="contributors" color="dark">
-        <PortalTextLogo />
+      <ContentBlock
+        number={2}
+        anchor="contributors"
+        color="dark"
+        organicHeight
+        backgroundImage={ClientsBackground}
+        backgroundImageAlt="Ethereum logo futuristic setting"
+      >
+        <div className={css['clients']}>
+          <div className={css['portal-text-logo']}>
+            <PortalTextLogo />
+          </div>
 
-        <p>
-          Implementing a multi-client approach is crucial to ensuring the security, decentralization, and overall health
-          of the Ethereum network. Portal network is building three different clients from the start to ensure a
-          decentralised strategy from day one.
-        </p>
+          <p className={css['header']}>Clients</p>
 
-        <Cards squareCards>
-          <SquareCard key="1" title="Get Started">
-            Learn the basics of the Ethereum Portal Research and Development
-          </SquareCard>
-          <SquareCard key="2" title="Get Started">
-            Learn the basics of the Ethereum Portal Research and Development
-          </SquareCard>
-          <SquareCard key="3" title="Get Started">
-            Learn the basics of the Ethereum Portal Research and Development
-          </SquareCard>
-          {/* <SquareCard key="4" image={CardImage4} title="Get Started" imageAlt="Get Started card">
-            Learn the basics of the Ethereum Portal Research and Development
-          </SquareCard> */}
-        </Cards>
+          <p className={`${css['description']} margin-top margin-bottom big-text`}>
+            Implementing a multi-client approach is crucial to ensuring the security, decentralization, and overall
+            health of the Ethereum network.{' '}
+            <span className="grey">
+              Portal network is building three different clients from the start to ensure a decentralised strategy from
+              day one.
+            </span>
+          </p>
+
+          <div className={css['client-cards']}>
+            <SquareCardVariation1
+              title="TRIN"
+              github="https://github.com/repo"
+              meta={
+                <>
+                  <p>Language: Rust</p>
+                  <p>Ethereum Foundation</p>
+                </>
+              }
+              description="Learn the basics of the Ethereum Portal Research and Development"
+            ></SquareCardVariation1>
+            <SquareCardVariation1
+              title="NIMBUS"
+              github="https://github.com/repo"
+              meta={
+                <>
+                  <p>Language: Rust</p>
+                  <p>Ethereum Foundation</p>
+                </>
+              }
+              description="Learn the basics of the Ethereum Portal Research and Development"
+            ></SquareCardVariation1>
+            <SquareCardVariation1
+              title="ULTRALIGHT"
+              github="https://github.com/repo"
+              meta={
+                <>
+                  <p>Language: Rust</p>
+                  <p>Ethereum Foundation</p>
+                </>
+              }
+              description="Learn the basics of the Ethereum Portal Research and Development"
+            ></SquareCardVariation1>
+          </div>
+
+          <div className={css['bottom-left']}>
+            <p className="big-text margin-top-less">Learn more 🡪</p>
+          </div>
+        </div>
       </ContentBlock>
       <ContentBlock number={3} anchor="resources" organicHeight>
         <ContentHeader title="This is an example content block"></ContentHeader>
@@ -141,7 +190,7 @@ const Home = () => {
           Aldus PageMaker including versions of Lorem Ipsum.
         </div>
       </ContentBlock>
-      <ContentBlock number={4} anchor="blog" color="dark">
+      <ContentBlock number={4} anchor="blog" color="dark" organicHeight>
         <ContentHeader title="Frequently Asked Questions"></ContentHeader>
         <Accordion
           items={[
@@ -256,12 +305,6 @@ const Home = () => {
               })}
 
               <p className={css['github-discord']}>Github / Discord</p>
-
-              {/* <div className={css['github-discord']}>
-
-                <GithubIcon />
-                <DiscordIcon />
-              </div> */}
             </div>
           </div>
           <div className={css['footer-logo']}>
