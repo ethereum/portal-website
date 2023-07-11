@@ -167,7 +167,7 @@ export const Cards = (props: CardsProps) => {
   }, [])
 
   return (
-    <div className={className} style={{ '--nCards': React.Children.count(props.children) }}>
+    <div className={className} style={{ '--nCards': React.Children.count(props.children) } as any}>
       <Flickity
         // className={'carousel'} // default ''
         className={css['cards']}
