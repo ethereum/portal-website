@@ -1,8 +1,16 @@
-.page-header {
+@import 'common/styles/variables.scss';
+
+.content-header {
     font-size: 54px;
     font-weight: 500;
     line-height: 90%;
     letter-spacing: -1.08px;
+    // max-width: 450px;
+
+    @media (max-width: $screen-md) {
+        font-size: 40px;
+        max-width: 70%;
+    }
 }
 
 .tiny-text {

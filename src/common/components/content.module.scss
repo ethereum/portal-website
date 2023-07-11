@@ -1,12 +1,17 @@
+@import 'common/styles/variables.scss';
+
 .content {
-  height: 100vh;
-  max-height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
   color: black;
+  --icon-color: black;
+  display: flex;
+  flex-direction: column;
 
-  &.black {
+  &.dark {
     color: white;
-    background: black;
+    --icon-color: white;
+    background: linear-gradient(180deg, #010614 0%, #0B1239 100%);;
 
     .number {
       color: white;
@@ -19,8 +24,9 @@
     max-height: none;
   }
 
-  &.grow-naturally {
+  &.grow-organically {
     min-height: auto;
+    height: auto;
   }
 
   .number {
@@ -34,5 +40,102 @@
       font-size: 64px;
       letter-spacing: -1.28px;
     }
+  }
+}
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.accordion {
+  .accordion-item {
+    // border-bottom: 1px solid $monochrome-6;
+    // margin-bottom: 16px;
+  }
+}
+
+
+// Cards
+.flickity-container {
+  width: calc(100% + 16px); // Account for padding on cards
+  transform: translateX(-8px);
+
+  &.square-cards {
+    width: calc(100% + 32px); // Account for padding on cards
+    transform: translateX(-16px) !important;
+  }
+
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.image-card {
+  width: max(100% / var(--nCards), 334px); // evenly divide cards to take up space, but never allow cards to be below 334px (unless they take up 100% of the viewport, in which case the max-width below will catch that)
+  max-width: 100%;
+  padding-right: 8px; // Cant rely on margin as it throws off alignment 
+  padding-left: 8px;
+
+  &:nth-child(2) {
+    img {
+      filter: none;
+    }
+  }
+  
+  .children {
+    padding-right: 8px;
+  }
+}
+
+.square-card {
+  width: max(100% / var(--nCards), 420px);
+  max-width: 100%;
+  padding-right: 16px;
+  padding-left: 16px;
+
+  .square-card-inner-container {
+    left: -16px;
+    background: white;
+  }
+
+  .card-content {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.cards {
+  outline: none !important;
+}
+
+.image {
+  pointer-events: none;
+  flex-shrink: 0;
+  flex-grow: 1;
+  pointer-events: auto;
+  position: relative;
+
+  &:before {
+    content: '';
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    height: 100%;
+    border-radius: 8px;
+    background: linear-gradient(0deg, #2c2c2cd3 0%, rgba(133, 133, 133, 0) 30%);
+  }
+
+  img {
+    filter: grayscale(0.7);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
   }
 }

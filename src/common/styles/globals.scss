@@ -174,6 +174,10 @@ a {
     padding-bottom: 100%;
   }
 
+  &.tall {
+    padding-bottom: 129%; // 430h/344w
+  }
+
   > * {
     position: absolute !important;
     top: 0;
@@ -224,6 +228,10 @@ $standard-spacing: 2em;
     &-less {
       margin-top: $standard-spacing / 2;
     }
+
+    &-much-less {
+      margin-top: $standard-spacing / 4;
+    }
   }
 
   &-bottom {
@@ -231,6 +239,10 @@ $standard-spacing: 2em;
 
     &-less {
       margin-bottom: $standard-spacing / 2;
+    }
+
+    &-much-less {
+      margin-bottom: $standard-spacing / 4;
     }
   }
 
@@ -240,6 +252,10 @@ $standard-spacing: 2em;
     &-less {
       margin-left: $standard-spacing / 2;
     }
+
+    &-much-less {
+      margin-left: $standard-spacing / 4;
+    }
   }
 
   &-right {
@@ -247,6 +263,10 @@ $standard-spacing: 2em;
 
     &-less {
       margin-right: $standard-spacing / 2;
+    }
+
+    &-much-less {
+      margin-right: $standard-spacing / 4;
     }
   }
 }
@@ -258,6 +278,10 @@ $standard-spacing: 2em;
     &-less {
       padding-top: $standard-spacing / 2;
     }
+
+    &-much-less {
+      padding-top: $standard-spacing / 4;
+    }
   }
 
   &-bottom {
@@ -265,6 +289,10 @@ $standard-spacing: 2em;
 
     &-less {
       padding-bottom: $standard-spacing / 2;
+    }
+
+    &-much-less {
+      padding-bottom: $standard-spacing / 4;
     }
   }
 
@@ -274,6 +302,10 @@ $standard-spacing: 2em;
     &-less {
       padding-left: $standard-spacing / 2;
     }
+
+    &-much-less {
+      padding-left: $standard-spacing / 4;
+    }
   }
 
   &-right {
@@ -282,10 +314,14 @@ $standard-spacing: 2em;
     &-less {
       padding-right: $standard-spacing / 2;
     }
+
+    &-much-less {
+      padding-right: $standard-spacing / 4;
+    }
   }
 }
 
-$border: 1px solid $monochrome-5;
+$border: 1px solid $monochrome-6;
 
 .border-top {
   border-top: $border;

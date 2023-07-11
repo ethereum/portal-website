@@ -1,148 +1,31 @@
 'use client'
 import React from 'react'
-import { createPortal } from 'react-dom'
 import css from './page.module.scss'
-import Image from 'next/image'
-import { ContentBlock } from 'common/components/content'
+import { ContentBlock, ContentHeader, Accordion, Cards, ImageCard, SquareCard } from 'common/components/content'
 import Link from 'common/components/link'
-import HeroSphere from 'common/assets/images/hero-sphere.png'
 import MainLogo from 'common/assets/images/main-logo.svg'
 import PortalTextLogo from 'common/assets/images/text-logo.svg'
 import FooterLogo from 'common/assets/images/footer-logo.svg'
-import DiscordIcon from 'common/assets/icons/discord.svg'
-import CrossIcon from 'common/assets/icons/cross.svg'
-import HamburgerIcon from 'common/assets/icons/hamburger.svg'
-import GithubIcon from 'common/assets/icons/github.svg'
+import { menuItems } from './menu'
+import CardImage1 from 'common/assets/images/image-1.png'
+import CardImage2 from 'common/assets/images/image-2.png'
+import CardImage3 from 'common/assets/images/image-3.png'
+import CardImage4 from 'common/assets/images/image-4.png'
+import ArrowDownLeftIcon from 'common/assets/icons/arrow-down-left.svg'
 import Spline from '@splinetool/react-spline'
-
-const menuItems = () => [
-  {
-    text: 'Get Started',
-    url: '#get-started',
-  },
-  {
-    text: 'Portal',
-    url: '#portal',
-  },
-  {
-    text: 'Contributors',
-    url: '#contributors',
-  },
-  {
-    text: 'Resources',
-    url: '#resources',
-  },
-  {
-    text: 'Blog',
-    url: '#blog',
-  },
-]
-
-const VerticalMenuItems = () => {
-  return (
-    <div className={css['vertical-menu']}>
-      {menuItems().map((menuItem: any) => {
-        return (
-          <Link className={menuItem.customClass} key={menuItem.text} href={menuItem.url}>
-            {menuItem.text}
-          </Link>
-        )
-      })}
-
-      <div className={css['github-discord']}>
-        <GithubIcon />
-        <DiscordIcon />
-      </div>
-    </div>
-  )
-}
-
-const Menu = () => {
-  const [mobileOpen, setMobileOpen] = React.useState(false)
-  const [mounted, setMounted] = React.useState(false)
-
-  React.useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  React.useEffect(() => {
-    if (!mounted) return
-
-    if (mobileOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = ''
-    }
-
-    return () => {
-      document.body.style.overflow = ''
-    }
-  }, [mobileOpen, mounted])
-
-  if (!mounted) return null
-
-  return (
-    <div className={`${css['menu-container']} section`}>
-      <div className={`${css['menu']}`}>
-        <MainLogo className={css['logo']} />
-
-        {/* Desktop */}
-        <div className={css['items']}>
-          {menuItems().map((menuItem: any) => {
-            return (
-              <Link className={menuItem.customClass} key={menuItem.text} href={menuItem.url}>
-                {menuItem.text}
-              </Link>
-            )
-          })}
-
-          <GithubIcon />
-          <DiscordIcon />
-        </div>
-
-        {/* Mobile */}
-        <div className={css['mobile-toggle']}>
-          <HamburgerIcon onClick={() => setMobileOpen(!mobileOpen)} />
-        </div>
-
-        {createPortal(
-          <div className={`${mobileOpen ? css['open'] : ''} ${css['foldout']}`}>
-            <div className="section">
-              <div className={css['content']}>
-                <div className={css['top']}>
-                  <VerticalMenuItems />
-                </div>
-
-                <div className={css['bottom']}>
-                  <PortalTextLogo />
-                  <p className="gray">Supported by Ethereum Foundation</p>
-                </div>
-              </div>
-            </div>
-          </div>,
-          document.body
-        )}
-      </div>
-    </div>
-  )
-}
 
 const Home = () => {
   return (
     <div>
-      <Menu />
-      <ContentBlock id="get-started">
+      <ContentBlock anchor="get-started" unpadded>
         <div className={css['hero']}>
           <div className={css['background']}>
             <Spline
               scene="https://prod.spline.design/UbLwthoAHBUOi3Ni/scene.splinecode"
-              // scene="https://prod.spline.design/03JSjbnhW8P41kDH/scene.splinecode"
               onLoad={application => {
-                console.log(application, 'application')
                 application.setZoom(0.5)
               }}
             />
-            {/* <Image src={HeroSphere} alt="Futuristic Sphere" /> */}
           </div>
           <div className={css['center']}>
             <div className="section">
@@ -157,60 +40,208 @@ const Home = () => {
           </div>
         </div>
       </ContentBlock>
-      <div className={`${css['hero-addendum']} section padding-top padding-bottom`}>
-        <div className="grid col-2 uneven-40">
-          <div className={css['left']}>
-            <p className="page-header">Research & Development</p>
-            <p className="big-text">View Contributors 🡪</p>
-          </div>
-          <div className={css['right']}>
-            <p className="big-text">
-              Ethereum Portal is an open source, multi-team research & development effort.{' '}
-              <span className="grey">
-                If you&apos;re interested in helping to contribute towards the design and implementation, join the
-                on-going conversation
-              </span>{' '}
-              on the Portal discord community.
-            </p>
-
-            <div className={css['cta-links']}>
-              <p>Github 🡕</p>
-              <p>Implementer Calls 🡕</p>
-              <p>Discord 🡕</p>
+      <ContentBlock organicHeight unpadded>
+        <div className={`${css['hero-addendum']} section padding-top padding-bottom`}>
+          <div className="grid col-2 uneven-40">
+            <div className={css['left']}>
+              <p className="content-header">Research & Development</p>
+              <p className="big-text">View Contributors 🡪</p>
             </div>
+            <div className={css['right']}>
+              <p className="big-text">
+                Ethereum Portal is an open source, multi-team research & development effort.{' '}
+                <span className="grey">
+                  If you&apos;re interested in helping to contribute towards the design and implementation, join the
+                  on-going conversation
+                </span>{' '}
+                on the Portal discord community.
+              </p>
 
-            <MainLogo />
+              <div className={css['cta-links']}>
+                <p>Github 🡕</p>
+                <p>Implementer Calls 🡕</p>
+                <p>Discord 🡕</p>
+              </div>
+
+              <MainLogo />
+            </div>
           </div>
         </div>
-      </div>
-      <ContentBlock number={1} id="portal">
-        <div className="section padding-top padding-bottom">
-          <p>hehe</p>
-          <p>haehea</p>
+      </ContentBlock>
+
+      <ContentBlock organicHeight number={1} anchor="portal">
+        <p className={`${css['featured-resources-header']} gray large-text`}>
+          Portal aims to build a decentralized peer-to-peer network that enables lightweight protocol access to the
+          Ethereum Network.
+        </p>
+
+        <div className={css['featured-resources']}>
+          <ContentHeader className="padding-top" title="Featured Resources">
+            <p className={css['arrow']}>
+              <ArrowDownLeftIcon />
+            </p>
+          </ContentHeader>
+
+          <Cards>
+            <ImageCard key="1" image={CardImage2} title="Get Started" imageAlt="Get Started card">
+              Learn the basics of the Ethereum Portal Research and Development
+            </ImageCard>
+            <ImageCard key="2" image={CardImage1} title="Lessons Learnt" imageAlt="Get Started card">
+              Learn the basics of the Ethereum Portal Research and Development
+            </ImageCard>
+            <ImageCard key="3" image={CardImage3} title="Discover Portal  - Video" imageAlt="Get Started card">
+              Learn the basics of the Ethereum Portal Research and Development
+            </ImageCard>
+            <ImageCard key="4" image={CardImage4} title="FAQ" imageAlt="Get Started card">
+              Learn the basics of the Ethereum Portal Research and Development
+            </ImageCard>
+          </Cards>
         </div>
       </ContentBlock>
-      <ContentBlock number={2} id="contributors" color="black">
-        <div className="section padding-top padding-bottom">
-          <p>hehe</p>
-          <p>haehea</p>
+      <ContentBlock number={2} anchor="contributors" color="dark">
+        <PortalTextLogo />
+
+        <p>
+          Implementing a multi-client approach is crucial to ensuring the security, decentralization, and overall health
+          of the Ethereum network. Portal network is building three different clients from the start to ensure a
+          decentralised strategy from day one.
+        </p>
+
+        <Cards squareCards>
+          <SquareCard key="1" title="Get Started">
+            Learn the basics of the Ethereum Portal Research and Development
+          </SquareCard>
+          <SquareCard key="2" title="Get Started">
+            Learn the basics of the Ethereum Portal Research and Development
+          </SquareCard>
+          <SquareCard key="3" title="Get Started">
+            Learn the basics of the Ethereum Portal Research and Development
+          </SquareCard>
+          {/* <SquareCard key="4" image={CardImage4} title="Get Started" imageAlt="Get Started card">
+            Learn the basics of the Ethereum Portal Research and Development
+          </SquareCard> */}
+        </Cards>
+      </ContentBlock>
+      <ContentBlock number={3} anchor="resources" organicHeight>
+        <ContentHeader title="This is an example content block"></ContentHeader>
+        <div className="grid col-2">
+          <p>
+            What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+            has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
+            type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
+            leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
+            release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+            software like Aldus PageMaker including versions of Lorem Ipsum.
+          </p>
+          What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+          has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
+          type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+          into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
+          of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
+          Aldus PageMaker including versions of Lorem Ipsum.
         </div>
       </ContentBlock>
-      <ContentBlock number={3} id="resources">
-        <div className="section padding-top padding-bottom">
-          <p>hehe</p>
-          <p>haehea</p>
-        </div>
-      </ContentBlock>
-      <ContentBlock number={4} id="blog">
-        <div className="section padding-top padding-bottom">
-          <p>hehe</p>
-          <p>haehea</p>
-        </div>
+      <ContentBlock number={4} anchor="blog" color="dark">
+        <ContentHeader title="Frequently Asked Questions"></ContentHeader>
+        <Accordion
+          items={[
+            {
+              title:
+                'Portal aims to build a decentralized peer-to-peer network that enables lightweight protocol access to the Ethereum protocol.',
+              content: (
+                <p>
+                  It is a long established fact that a reader will be distracted by the readable content of a page when
+                  looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+                  distribution of letters, as opposed to using 'Content here, content here', making it look like
+                  readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their
+                  default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
+                  Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected
+                  humour and the like).
+                </p>
+              ),
+            },
+            {
+              title:
+                'Portal aims to build a decentralized peer-to-peer network that enables lightweight protocol access to the Ethereum protocol.',
+              content: (
+                <p>
+                  It is a long established fact that a reader will be distracted by the readable content of a page when
+                  looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+                  distribution of letters, as opposed to using 'Content here, content here', making it look like
+                  readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their
+                  default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
+                  Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected
+                  humour and the like).
+                </p>
+              ),
+            },
+            {
+              title:
+                'Portal aims to build a decentralized peer-to-peer network that enables lightweight protocol access to the Ethereum protocol.',
+              content: (
+                <p>
+                  It is a long established fact that a reader will be distracted by the readable content of a page when
+                  looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+                  distribution of letters, as opposed to using 'Content here, content here', making it look like
+                  readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their
+                  default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
+                  Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected
+                  humour and the like).
+                </p>
+              ),
+            },
+            {
+              title:
+                'Portal aims to build a decentralized peer-to-peer network that enables lightweight protocol access to the Ethereum protocol.',
+              content: (
+                <p>
+                  It is a long established fact that a reader will be distracted by the readable content of a page when
+                  looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+                  distribution of letters, as opposed to using 'Content here, content here', making it look like
+                  readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their
+                  default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
+                  Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected
+                  humour and the like).
+                </p>
+              ),
+            },
+            {
+              title:
+                'Portal aims to build a decentralized peer-to-peer network that enables lightweight protocol access to the Ethereum protocol.',
+              content: (
+                <p>
+                  It is a long established fact that a reader will be distracted by the readable content of a page when
+                  looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+                  distribution of letters, as opposed to using 'Content here, content here', making it look like
+                  readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their
+                  default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
+                  Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected
+                  humour and the like).
+                </p>
+              ),
+            },
+            {
+              title:
+                'Portal aims to build a decentralized peer-to-peer network that enables lightweight protocol access to the Ethereum protocol.',
+              content: (
+                <p>
+                  It is a long established fact that a reader will be distracted by the readable content of a page when
+                  looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+                  distribution of letters, as opposed to using 'Content here, content here', making it look like
+                  readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their
+                  default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
+                  Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected
+                  humour and the like).
+                </p>
+              ),
+            },
+          ]}
+        ></Accordion>
       </ContentBlock>
 
       <footer className={`${css['footer']} padding-top`}>
         <div className="section">
-          <div className="grid col-2 uneven-60">
+          <div className="grid col-2 uneven-60 padding-bottom padding-top-less">
             <p className={`extra-large-text ${css['header']}`}>
               Making the Ethereum Network lightweight and accessible.
             </p>
