@@ -137,7 +137,7 @@ export const SquareCardVariation1 = (props: SquareCardVariation1Props) => {
       <div className={css['square-card-variation-1']}>
         <div className={css['title']}>{props.title}</div>
         <div className={css['meta']}>
-          <div className={css['github']}><a href={props.github}>Github</a></div>
+          <div className={css['github']}><a href={props.github} target="_blank">Github</a></div>
           <div className={css['meta-description']}>{props.meta}</div>
         </div>
 
