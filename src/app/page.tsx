@@ -133,7 +133,7 @@ const Home = () => {
           <div className={css['client-cards']}>
             <SquareCardVariation1
               title="TRIN"
-              github="https://github.com/repo"
+              github="https://github.com/ethereum/trin"
               meta={
                 <>
                   <p>Language: Rust</p>
@@ -144,10 +144,10 @@ const Home = () => {
             ></SquareCardVariation1>
             <SquareCardVariation1
               title="NIMBUS"
-              github="https://github.com/repo"
+              github="https://github.com/status-im/nimbus-eth2"
               meta={
                 <>
-                  <p>Language: Rust</p>
+                  <p>Language: Nim</p>
                   <p>Ethereum Foundation</p>
                 </>
               }
@@ -155,10 +155,10 @@ const Home = () => {
             ></SquareCardVariation1>
             <SquareCardVariation1
               title="ULTRALIGHT"
-              github="https://github.com/repo"
+              github="https://github.com/ethereumjs/ultralight"
               meta={
                 <>
-                  <p>Language: Rust</p>
+                  <p>Language: TypeScript</p>
                   <p>Ethereum Foundation</p>
                 </>
               }
