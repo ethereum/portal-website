@@ -1,0 +1,32 @@
+# Lessons Learnt
+​
+We could add a ‘wishlist’ of welcome ideas, opinions etc. This could link to a wishlist on the ESP website (and then people could apply for grants) or be a page which also links to the grants program and Portal Network discord etc
+Ask the team to write down:
+
+- What they have learnt, unforeseen challenges
+- Short-term challenges and long-term challenges
+​
+## LESSONS LEARNT
+
+To be open, we have compiled some lessons the Portal Network has learnt in its journey.
+(this needs heavy input from the team)
+
+- DevP2P protocol is the servant of execution clients and thus is beholden to the “protocol”. The corollary to this is that the DevP2P protocol is not there to serve end users. The conclusion is that to achieve a protocol that enables lightweight protocol access, it requires something new, hence the Portal Network.
+- Execution clients are building infrastructure to support the “protocol”. End users aren’t their top priority, and they have enough difficulty building and maintaining their clients that end users aren’t a very high priority.
+- The previous JSON-RPC API based use case for the Portal Network was too ambitious (see below for competing with centralized providers). The revised roadmap is still intended to point in the same direction, but with a focus on delivering smaller units of functionality for the use cases we are confident about (history, beacon head following), and framing things we are less confident about (state network) as research projects.
+- The low water mark for impacting “Userland” is very high because we must compete with centralised services such as infura (latency, gas estimations). At present, Portal Network use cases such as gas estimation are effected heavily by network latency since EVM execution requires fetching many random pieces of state data, a process that is very fast for centralized operators with a full copy of the state, and something that is fundamentally slower if each piece must be fetched synchronously from the Portal Network.
+​
+​
+## Current Challenges:
+Portal Network is developing a new roadmap (Summer 2023)
+
+The original JSON-RPC-based roadmap and this new roadmap direction are still roughly equivalent in the designs of our networks. However, they differ in terms of the client functionality we intend to deliver.
+
+The JSON-RPC-based roadmap was a way to ensure that we were testing the network functionality that we were building.
+
+The potential roadmap changes the development focus to the following units of functionality:
+- Tracking of the chain head of both consensus and execution chains
+- Syncing of recent and full history data (headers/bodies/receipts)
+- Syncing and retrieval of the Ethereum state - Looking up transactions by their hash
+- Broadcasting transactions
+- EVM execution

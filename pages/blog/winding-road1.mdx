@@ -1,0 +1,80 @@
+# The winding road to functional light clients: 1
+
+It was nearly five years ago that we set out to build Trinity, a new "light weight" client for the Ethereum network.  Geth had recently shipped the first versions of the LES protocol and we had big dreams.
+
+As often happens with big dreams, they were quickly dashed against the rocky shores of "reality."  Over the years we learned a number of lessons:
+
+- EVM computation is fundamentally "heavy."
+- LES is vast desert of starved clients desperate for data.
+- Syncing and maintaining the state is prohibitively difficult.
+- The chain history is largely unnecessary but still required.
+- The core ETH protocol is fundamentally unfriendly towards being "lightweight."
+- Python is too slow.
+
+Our goals were noble, but our approach was flawed.  Time to go back to the drawing board.
+
+## Accessing the Ethereum Protocol
+
+Today, if you want to interact with the Ethereum protocol you've got two choices:
+
+- Run one of the various clients.
+- Use a centralized provider such as Infura.
+
+Both of these options are fine for many use cases, however they sit at the far edge of two extremes.  Ethereum clients consume large amounts of disk space, take hours or days to sync, and tend to have a large footprint on CPU and RAM.  Centralized providers are easy and reliable at the expense of privacy, security, and the general tenets of decentralization that we want to promote.
+Why don't we have a third choice that lives somewhere in the middle?  The internet has shown us repeatedly that given a choice between something inconvenient and something easy, people take the easy route.  
+
+- Hosting your own email is hard.  Gmail is easy.
+- Buying DVDs or CDs is hard.  Piracy is easy.
+- Piracy is hard.  Streaming is easy.
+- Running your own Ethereum node is hard.  Infura is easy.  
+
+Ideologically, I try to embrace privacy preserving solutions. However all of my transactions flow through either MyCrypto or Metamask, both of which exist on top of centralized providers.  Both of these wallets support using your own provider, but the overhead of doing this with the current client options is too high for me. If we want to move the needle on how much of the market these centralized solutions capture, we need to give people better choices.
+
+We need a client that:
+- runs on resource constrained devices (1 CPU / 1GB RAM / less than 1GB disk footprint)
+- exposes the APIs necessary for standard "wallet" applications
+- doesn't require syncing
+
+I should be able to leave the client on all the time without it impacting the performance of my machine.  And I should be able to come back after being offline for a time without needing to wait for the client to catch back up.
+For me, this is is the "holy grail."  The hill I'll climb or die trying.
+
+## Wallets
+What we are talking about building here is the perfect client for a wallet.  Wallets are ubiquitous and are predominantly backed by centralized providers.  At a high level, here is what a wallet needs to do:
+
+- Track the tip of the chain
+- Lookup account balance and nonce
+- Read contract information (like token balances)
+- Estimate gas limits for transactions
+- Send transactions
+- Monitor for pending transactions to be mined
+
+Most wallets are standardized on the JSON-RPC API.  A closer look at the requirements above translates to the following JSON-RPC endpoints:
+
+- `eth_blockNumber` for tracking the tip of the chain
+- `eth_getBalance` and eth_getTransactionCount for account information
+- `eth_call` for reading contract information
+- `eth_estimateGas` for gas estimations
+- `eth_sendRawTransaction` for transaction sending
+- `eth_getTransactionReceipt` for transactions once they've been mined.
+
+If we dig down further into what is necessary to actually fulfill this functionality we get these lower level requirements:
+
+- Access to the accounts and contract storage to support eth_call ,  eth_estimateGas, eth_getBalance and eth_getTransactionCount
+- Access to the gossip network for tracking the tip of the chain and eth_sendRawTransaction
+- Access to the chain history for eth_getTransactionReceipt
+
+So *if* we can satisfy these requirements, we can build a client that is well suited for a wallet that is lightweight to run, doesn't require syncing, and doesn't sacrifice privacy and security.
+
+## The Network Today
+
+Today, Ethereum clients have a choice between the ETH and LES DevP2P protocols.
+LES implements a Server/Client model, where data flows from the servers to the clients as it is requested.  The protocol doesn't allow for clients to contribute back in any meaningful way, and the state of the protocol shows this.  My experience with LES has been that there is a significant imbalance between the numbers of servers and clients.  Running a server is expensive and there aren't nearly enough of them.  This results in LES being unreliable and often completely unusable.
+The ETH protocol is flawed in a different way.  It serves its purpose admirably, ensuring that the chain history and state data is replicated in full across as many nodes on the network as possible.  This places high demands on individual clients. It is compulsary for every node on the network to hold the full history and the full state.  Nodes who don't have this data are unlikely to maintain healthy peer connections and they will be disconnected regularly when they cannot fulfill data requested by their peers.
+The "Monolith" we wish to deconstruct here is the ETH protocol; it contains all of the functionality necessary for the type of client we wish to build.  Its design is well suited for full nodes and miners, but not for the lightweight clients we've outlined.
+
+## Deconstructing the Monolith
+
+Zooming all the way back out...
+There's a problem we want to solve.  The options available to people when choosing how to interact with the Ethereum protocol are limited and the result is a heavy dependency on centralized providers.   The state of the internet today is a harbinger of where this likely leads.
+We have a concept for a different type of light client.  One that is well suited for Ethereum wallets.  This concept isn't just an idea, but is based on actual experiments, prototypes, and our growing knowledge and understanding of the existing protocols.
+The solution we are working on requires some modification to the core Ethereum protocol to support this use case.  In my next post, I'll outline specifically what these changes and additions are and how we intend to go about implementing them.  And most importantly, I'll outline the UX that I expect this new type of light client to enable.
