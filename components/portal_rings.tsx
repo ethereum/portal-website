@@ -7,7 +7,7 @@ const PortalRings = () => {
             <Flex wrap={"wrap"} justifyContent={"space-around"} w={"100%"}>
                 <Box position="relative" w={{ base: "300px", md: "400px" }} my={50}>
                     <Image
-                        src="/../public/BluePortal.png" alt={"splash image"} width="350" height="100"
+                        src="public/BluePortal.png" alt={"splash image"} width="350" height="100"
                     />
                     <Text
                         position="absolute"
@@ -22,7 +22,7 @@ const PortalRings = () => {
                 </Box>
                 <Box position="relative" w={{ base: "300px", md: "400px" }} my={50}>
                     <Image
-                        src="/../public/OrangePortal.png" alt={"splash image"} width="350" height="100"
+                        src="public/OrangePortal.png" alt={"splash image"} width="350" height="100"
                     />
                     <Text
                         position="absolute"

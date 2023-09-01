@@ -18,7 +18,7 @@ const Splash = () => {
 
                 <Box display="flex" justifyContent="center" alignItems="center" minW={"200px"}>
                     <Image
-                        src="/../public/logos/EthPortalNetworkLogo.png" alt={"splash image"} width="200" height="100"
+                        src="public/logos/EthPortalNetworkLogo.png" alt={"splash image"} width="200" height="100"
                     />
                 </Box>
 
