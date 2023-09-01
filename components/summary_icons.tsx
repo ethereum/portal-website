@@ -1,6 +1,7 @@
 import { faHouseChimney, faLaptop, faRocket } from "@fortawesome/free-solid-svg-icons"
 import { Flex, Card, CardHeader, Heading, VStack, } from "@chakra-ui/react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core"
 
 
 const SummaryCard = ({ title, description, icon }: { title: string; description: string; icon: IconDefinition }) => {
