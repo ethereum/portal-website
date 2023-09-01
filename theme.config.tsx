@@ -1,6 +1,5 @@
-import { DocsThemeConfig } from 'nextra-theme-docs'
+import { DocsThemeConfig, Navbar } from 'nextra-theme-docs'
 import { portalLogo } from './components/logo'
-import NextScript from "next/script";
 
 const config: DocsThemeConfig = {
   logo: portalLogo,
