@@ -7,7 +7,7 @@ import Image from 'next/image'
 const portalLogo = () => {
   return (
     <>
-      <Image src='/static/PortalIcon.png' alt=" " width="20" height="20" />
+      <Image src='/static/PortalIcon.png' alt=" " width="40" height="40" />
       &nbsp;&nbsp; <b>Portal Network</b>
     </>
   )
