@@ -12,7 +12,7 @@ const Splash = () => {
                 borderRadius={200}
                 py={{ base: 10, md: 5 }}
                 px={{ base: 10, lg: 10 }}
-                mx={100}
+                mx={50}
                 gap={10}
             >
 
@@ -26,8 +26,9 @@ const Splash = () => {
                     <Heading as="h1" textAlign={"center"} size='xl' fontWeight={"bold"} fontSize="32">
                         Ethereum Portal Network
                     </Heading>
+                    <br />
                     <Text fontWeight={"bold"} fontSize={{ base: "medium", md: "1xl" }} pt={2} px={5} textAlign={"center"}>
-                        A Research and Development Project for Decentralized Ethereum Light Clients
+                        Decentralized Ethereum Light Clients
                     </Text>
                 </Box>
             </Flex>
