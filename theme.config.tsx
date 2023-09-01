@@ -1,6 +1,5 @@
 import { DocsThemeConfig, Navbar } from 'nextra-theme-docs'
 import { portalLogo } from './components/logo'
-import NextScript from "next/script";
 
 const config: DocsThemeConfig = {
   logo: portalLogo,
@@ -16,10 +15,6 @@ const config: DocsThemeConfig = {
   }
 };
 
-const navbar: Navbar = {
-  height: '8rem'
-
-}
 
 const CustomHead: React.FC = () => (
   <>
