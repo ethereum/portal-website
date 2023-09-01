@@ -1,27 +1,9 @@
-## Getting Started
+# Portal Network docs
 
-Install packages (requires nodejs installation):
-
-```bash
-npm install
-# or
-yarn
+This site is bootstrapped using Nextra (docs theme). To build locally run
 ```
-
-Run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Editing Content
-
-To edit content locate files named "page.tsx" in the /src/app directory - these can be nested too if the app has multiple pages (nextjs app dir convention)
-
-`menu` adjustments can be made in `src/app/menu.tsx`
+from the project root.
