@@ -23,7 +23,7 @@ const Splash = () => {
                 </Box>
 
                 <Box flex={1} display="flex" flexDirection="column" justifyContent="center" alignItems="center" gap={{ base: 3, md: 10 }}>
-                    <Heading as="h1" textAlign={"center"} size='xl' fontWeight={"bold"} fontSize="64">
+                    <Heading as="h1" textAlign={"center"} size='xl' fontWeight={"bold"} fontSize="60">
                         Portal Network
                     </Heading>
                     <br />
