@@ -9,7 +9,7 @@ const config: DocsThemeConfig = {
   chat: {
     link: 'https://discord.gg/QcD3wWSp',
   },
-  docsRepositoryBase: 'https://github.com/ethereum/portal-network-specs/tree/master',
+  docsRepositoryBase: 'https://github.com/ethereum/portal-website/tree/master',
   footer: {
     text: 'Portal Network docs',
   }
