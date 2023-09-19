@@ -46,7 +46,7 @@ However, for this tutorial you will need to add some flags to ensure Trin expose
 /usr/local/bin/trin --web3-transport http
 ```
 
-By default, Trin exposes `http://localhost:8545` for http traffic.
+By default, Trin exposes `http://localhost:8545` for HTTP traffic.
 
 You can leave Trin running for the remainder of this tutorial.
 
