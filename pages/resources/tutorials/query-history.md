@@ -70,7 +70,9 @@ This is prepended to the hash of the block that you want to retrieve data from. 
 The content key is sent to the node as a parameter is a JSON object along with some metadata about the request. The basic form of a request is as follows:
 
 ```json
-'{"jsonrpc":"2.0", "method": "<portal-method>", "params":[<content-key>], "id":1}'
+{
+    "jsonrpc":"2.0", "method": "<portal-method>", "params":[<content-key>], "id":1
+}
 ```
 
 This can be sent to your node over HTTP using curl, as follows:
@@ -151,25 +153,27 @@ fn main() {
 You can now run your decoder app using `cargo run` from the project root. A human readable block header will be printed to the console, looking like this:
 
 ```json
-HeaderWithProof { header: Header { 
-    parent_hash: 0x90478176106fe1a3f4f38c27f76cfdb3ba2a25d64fe6727307ba2abc97ef338e, 
-    uncles_hash: 0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347, 
-    author: 0x333333f332a06ecb5d20d35da44ba07986d6e203, 
-    state_root: 0xd364e6b2706bd76fb144bdbc32602d1cd97b9e7dc1cec4349e395ef34dd2ff6b, 
-    transactions_root: 0xbbb6a8ac5a5cbd5dde25466632117d322605175dd7c6146fd3b4317926070370, 
-    receipts_root: 0xecf61f4545befbfdda13a493f58bcf39436f53a5ea21dd1c9d318e4f8c659931, 
-    logs_bloom: 0x04e40979c9c2aa1d56087c6080285820456d0c63428fb0808421800227b30160700440498060002321354bf88822bba04769952acba9eda24cb2c47830240012745447087569816d2820ea3aaf144273c290102a1044090101192a479820245150580c813a0ac5c10e013a6d09010d5b27144d5a983b1fe166e5b41d724aa03d032023000f21897903c878858b0206074445032d8d2c60d9409040c733f0f4b7cb2d245a0f82ea740a0260e09012a84a02bdc516d822c332c0705dd324aaa0116463402e22090ec888043a818636f280a010460c7520601308b42b2aa591e18b5c15f4845a465289d39091aa2d201083c3a091121b1b09502b805421e0d58809, 
-    difficulty: 0, 
-    number: 18170745, 
-    gas_limit: 30000000, 
-    gas_used: 11326949, 
-    timestamp: 1695136031, 
-    extra_data: [114, 115, 121, 110, 99, 45, 98, 117, 105, 108, 100, 101, 114, 46, 120, 121, 122], 
-    mix_hash: Some(0xced268a3ad5e47cc29d2ff6502d4353f1a7e6c9be349495dc7cadad54f6b3933), 
-    nonce: Some(0x0000000000000000), 
-    base_fee_per_gas: Some(16394876782), 
-    withdrawals_root: Some(0xb257e1038cfa933c4c007a976c8e645e14b20ed2536653182be37343d9136b6c) }, 
-    proof: None(SszNone { value: None }) }
+HeaderWithProof { 
+    header: Header { 
+        parent_hash: 0x90478176106fe1a3f4f38c27f76cfdb3ba2a25d64fe6727307ba2abc97ef338e, 
+        uncles_hash: 0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347, 
+        author: 0x333333f332a06ecb5d20d35da44ba07986d6e203, 
+        state_root: 0xd364e6b2706bd76fb144bdbc32602d1cd97b9e7dc1cec4349e395ef34dd2ff6b, 
+        transactions_root: 0xbbb6a8ac5a5cbd5dde25466632117d322605175dd7c6146fd3b4317926070370, 
+        receipts_root: 0xecf61f4545befbfdda13a493f58bcf39436f53a5ea21dd1c9d318e4f8c659931, 
+        logs_bloom: 0x04e40979c9c2aa1d56087c6080285820456d0c63428fb0808421800227b30160700440498060002321354bf88822bba04769952acba9eda24cb2c47830240012745447087569816d2820ea3aaf144273c290102a1044090101192a479820245150580c813a0ac5c10e013a6d09010d5b27144d5a983b1fe166e5b41d724aa03d032023000f21897903c878858b0206074445032d8d2c60d9409040c733f0f4b7cb2d245a0f82ea740a0260e09012a84a02bdc516d822c332c0705dd324aaa0116463402e22090ec888043a818636f280a010460c7520601308b42b2aa591e18b5c15f4845a465289d39091aa2d201083c3a091121b1b09502b805421e0d58809, 
+        difficulty: 0, 
+        number: 18170745, 
+        gas_limit: 30000000, 
+        gas_used: 11326949, 
+        timestamp: 1695136031, 
+        extra_data: [114, 115, 121, 110, 99, 45, 98, 117, 105, 108, 100, 101, 114, 46, 120, 121, 122], 
+        mix_hash: Some(0xced268a3ad5e47cc29d2ff6502d4353f1a7e6c9be349495dc7cadad54f6b3933), 
+        nonce: Some(0x0000000000000000), 
+        base_fee_per_gas: Some(16394876782), 
+        withdrawals_root: Some(0xb257e1038cfa933c4c007a976c8e645e14b20ed2536653182be37343d9136b6c) }, 
+        proof: None(SszNone { value: None }) 
+    }
 ```
 
 ## Summary
