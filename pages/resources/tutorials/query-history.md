@@ -178,7 +178,7 @@ HeaderWithProof {
 
 ## Summary
 
-Well done! You have retrieved and decoded historical Ethereum data using your super lighweight Portal client!
+Well done! You have retrieved and decoded historical Ethereum data using your super lightweight Portal client!
 Without using Portal Network, this same operation would require you to run an archive node (for old data) or use a centralized RPC provider - instead you have done it in a decentralized and super lightweight way using Trin!
 
 In this guide you learned:
