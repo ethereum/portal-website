@@ -1,6 +1,6 @@
-# Retrieving historical data from a Portal client
+# Retrieving historical block headers using Trin
 
-The Portal Network aims to provide a decentralized store of historical Ethereum data. It does this by distributing data across the network. Your Portal Network client provides you with a window into the network and request specific data from other nodes. In this guide you will learn how to start a Poral Network client and request some historical data. You will:
+The Portal Network aims to provide a decentralized store of historical Ethereum data. It does this by distributing data across the network. Your Portal Network client provides you with a window into the network and request specific data from other nodes. In this guide you will learn how to start a Portal Network client and request some historical data. You will:
 
 - Install and run Trin
 - Learn how to retrieve data from your node
