@@ -1,4 +1,5 @@
 {
     "index": "Introduction",
+    "query-history": "Retrieving historical headers using Trin"
     "query-block-fluffy": "Retrieving block data with Fluffy"
 }
