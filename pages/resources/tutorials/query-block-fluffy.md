@@ -39,9 +39,9 @@ cd nimbus-eth1 && \
 make fluffy
 ```
 
-This will create a `fluffy` binary in `~/build/fluffy`. You can run Fluffy from there, or move the binary into a more convenient location.
+This will create a `fluffy` binary in `./build/fluffy`. You can run Fluffy from there, or move the binary into a more convenient location.
 
-You can now run Fluffy! You will need to pass some flags to Fluffy to enable your node to join the network using some boostrap nodes, and to enable RPC requests.
+You can now run Fluffy! You will need to pass some flags to Fluffy to enable your node to join the network using some bootstrap nodes that use the same IP range, and to enable RPC requests.
 
 ```sh
 ./build/fluffy --rpc --table-ip-limit:1024 --bucket-ip-limit:24
@@ -58,7 +58,7 @@ The Portal network has its own set of [RPC methods](https://github.com/ethereum/
 
 Fluffy implements a subset of the standard Ethereum JSON RPC methods, including `eth_getBlockByHash`. This will return block body data in human-readable form given a block hash.
 
-Ethereum clients serve these requests by querying their own local copy of the Ethereum blockchain data. However, portal clients do not have local Ethereum data to query. This means the request is routed through a set of Portal Network specific methods that relay the query to other nodes on the network. In this case, to serve the `eth_getBlockByhash` request the client is doing multiple `portal_historyRecursiveFindContent` calls to search the network for the block header and the block body.
+Ethereum clients serve these requests by querying their own local copy of the Ethereum blockchain data. However, Portal clients do not have local Ethereum data to query. This means the request is routed through a set of Portal Network specific methods that relay the query to other nodes on the network. In this case, to serve the `eth_getBlockByhash` request the client is doing multiple `portal_historyRecursiveFindContent` calls to search the network for the block header and the block body.
 
 The request has the following general structure:
 
@@ -76,7 +76,7 @@ This can be sent to your node over HTTP using curl, as follows:
 curl -X POST --data '{"jsonrpc":"2.0", "method": "eth_getBlockByHash", "params":["0x6ec566a8ffb0ee4680a58c23ac276285b180bd36c33db72e341c77118ac10392", false], "id":1}'
 ```
 
-The response will look something like this (although there will likely be many more transactions in the `tnsactions` field):
+The response will look something like this (although there will likely be many more transactions in the `transactions` field):
 
 ```json
 {
@@ -181,7 +181,7 @@ To look for the corresponding block body you can repeat the same search but repl
 
 ## Summary
 
-Well done! You have retrieved and decoded historical Ethereum data using your super lighweight Portal client!
+Well done! You have retrieved and decoded historical Ethereum data using your super lightweight Portal client!
 Without using Portal Network, this same operation would require you to run a full Ethereum node or use a centralized RPC provider - instead you have done it in a decentralized and super lightweight way using Fluffy!
 
 In this guide you learned:
