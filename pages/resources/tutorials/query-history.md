@@ -27,20 +27,9 @@ There are specific instructions for installing Trin in the next section.
 
 Trin turns your computer into a Portal Network node, meaning it can relay requests to other nodes on the network. Your request is passed around the network until it reaches a node storing the specific information you need. Then, that node sends the data to you.
 
-The easiest way to get Trin is to clone the [Github repository](https://github.com/ethereum/trin).
+The easiest way to get Trin is to clone the [Github repository](https://github.com/ethereum/trin) and follow the installation instructions in the [Trin book](https://ethereum.github.io/trin/users/installation.html).
 
-With Trin downloaded, you can build the executable by running the following command from the project root:
-
-`cargo build --workspace --release`
-
-This will create a `trin` binary in `~/trin/target/release/trin`. You can run trin from there, or move the binary into a more convenient location. In this tutorial it is assumed you moved your Trin binary into `usr/local/bin`, as follows:
-
-```sh
-cp -a ~/trin/target/release/trin /usr/local/bin/trin
-```
-You can now run Trin! 
-
-However, for this tutorial you will need to add some flags to ensure Trin exposes an HTTP port to receive your requests. You can do this with `--web3-transport http`. Your command to start Trin is therefore:
+Your command to start Trin with HTTP enabled is:
 
 ```sh
 /usr/local/bin/trin --web3-transport http
