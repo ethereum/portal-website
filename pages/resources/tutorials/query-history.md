@@ -63,6 +63,7 @@ The identifier is a single byte that maps to the fields found in an Ethereum blo
 
 - `0x00`: block header
 - `0x01`: block body
+- `0x02`: block receipts
 
 
 This is prepended to the hash of the block that you want to retrieve data from. For example, if you want to retrieve the header from the block with hash `0x6f68209b1294f6365a7ef6c24d41a7195bc68831ae57261b277029196e00f6b0`, your content key would be `0x00` + `6f68209b1294f6365a7ef6c24d41a7195bc68831ae57261b277029196e00f6b0` = `0x006f68209b1294f6365a7ef6c24d41a7195bc68831ae57261b277029196e00f6b0`.
@@ -93,7 +94,7 @@ Here's an example of a Glados entry for a recent successful upload:
 
 [Key 0x006e0ee92ebaf1b48919d193bd574b3096a85cc2609d286cdc511ad97ce5a18159](http://glados.ethportal.net/content/key/0x006e0ee92ebaf1b48919d193bd574b3096a85cc2609d286cdc511ad97ce5a18159/)
 
-You can tell from then key that this is a block header (begins `0x00` and the block hash was `0x06e0ee92ebaf1b48919d193bd574b3096a85cc2609d286cdc511ad97ce5a18159` )
+You can tell from the key that this is a block header (begins `0x00` and the block hash was `0x06e0ee92ebaf1b48919d193bd574b3096a85cc2609d286cdc511ad97ce5a18159` )
 
 
 So, to retrieve some real data from your Portal node, you can run the following command (or if you wish, replace the content key with another one that you have verified exists using Glados):
@@ -174,6 +175,7 @@ HeaderWithProof {
         withdrawals_root: Some(0xb257e1038cfa933c4c007a976c8e645e14b20ed2536653182be37343d9136b6c) }, 
         proof: None(SszNone { value: None }) 
     }
+}
 ```
 
 ## Summary
