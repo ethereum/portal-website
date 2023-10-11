@@ -1,0 +1,16 @@
+# Glados
+
+Glados is a health monitoring service for the Portal Network. It is a set of utilities and a dashboard that allows users to view what 
+content is available in the Portal Network and search the network for specific data.
+
+
+
+The rough shape of Glados is as follows:
+
+The glados-monitor crate implements a long running process which continually follows the tip of the chain, 
+and computes the ContentID/ContentKey values for new content as new blocks are added to the canonical chain. 
+These values are inserted into a relational database (SQLite for local dev, Postgres for production).
+
+A second long running process (that has not yet been written) then queries the database for content that it will then "audit" to determine whether the content can be successfully retrieved from the network. The audit process will use the Portal Network JSON-RPC api to query the portal network for the given content and then record in the database whether the content could be successfully retrieved. The database is structured such that a piece of content can be audited many times, giving a historical view over the lifetime of the content showing times when it was or was not available.
+
+The glados-web crate implements a web application to display information from the database about the audits. The goal is to have a dashboard that provides a single high level overview of the network health, as well as the ability to drill down into specific pieces of content to see the individual audit history.
