@@ -1,9 +1,9 @@
     {
         "index": "Home",
         "overview": "Overview",
-        "resources": "Resources",
         "clients": "Clients",
         "community": "Community",
+        "resources": "Resources",
         "faq": "FAQ",
         "blog": "Blog"
     }
