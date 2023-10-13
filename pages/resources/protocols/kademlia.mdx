@@ -66,9 +66,6 @@ In contrast, a Kademlia DHT represents the system as a binary tree, with the nod
 
 ### Kademlia
 
-![kademlia](https://codethechange.stanford.edu/guides/_images/fig7.png "kademlia")
-"[111 wants to perform GET(011)](https://codethechange.stanford.edu/guides/guide_kademlia.html#id9)" by [Drew Gregory](https://github.com/DrewGregory), Jose Francisco, Ben Heller, and Zarah Tesfai is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
-
 In Kademlia, 'distance' is defined using the XOR operator, applied to the IDs (interpreted as non-negative integers) of two nodes, or between a node ID and a key. Essentially, the 'closest' node to a key in Kademlia is the one with the smallest XOR result when the key is XORed with the node's ID.
 
 Having established the rules for how keys are assigned to nodes, we need to define the process for nodes to discover keys stored on other nodes. This task involves striking a balance between the number of other nodes' addresses that each node needs to store (referred to as its 'routing table') and the time it takes to locate a particular key in the network.
