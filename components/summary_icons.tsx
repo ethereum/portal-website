@@ -1,15 +1,13 @@
 import { faHouseChimney, faLaptop, faRocket } from "@fortawesome/free-solid-svg-icons"
 import { Flex, Card, CardHeader, Heading, VStack, } from "@chakra-ui/react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { IconDefinition } from "@fortawesome/fontawesome-svg-core"
+import { Home, Laptop, Rocket } from "lucide-react";
 
-
-const SummaryCard = ({ title, description, icon }: { title: string; description: string; icon: IconDefinition }) => {
+const SummaryCard = ({ title, description, icon }: { title: string; description: string; icon: any }) => {
     return (
         <Card borderRadius={200} px={10}>
             <CardHeader>
-                <VStack gap={50}>
-                    <FontAwesomeIcon icon={icon} size={"2x"} />
+                <VStack gap={24}>
+                    {icon}
                     <Heading size="xl" fontWeight="bold">{title}</Heading>
                 </VStack>
             </CardHeader>
@@ -21,21 +19,21 @@ const SummaryCard = ({ title, description, icon }: { title: string; description:
 const SummaryIcons = () => {
     return (
 
-        <Flex gap={150} py={10} wrap={"wrap"} justifyContent={"center"} alignItems={"center"}>
+        <Flex gap={150} py={24} wrap={"wrap"} justifyContent={"center"} alignItems={"center"}>
             <SummaryCard
                 title={"Fast syncing"}
                 description={"View a summary of all your clients over the last month."}
-                icon={faRocket}
+                icon={<Rocket size={96} />}
             />
             <SummaryCard
                 title={"Basic hardware"}
                 description={"View a summary of all your clients over the last month."}
-                icon={faLaptop}
+                icon={<Laptop size={96} />}
             />
             <SummaryCard
                 title={"Residential internet"}
                 description={"View a summary of all your clients over the last month."}
-                icon={faHouseChimney}
+                icon={<Home size={96} />}
             />
         </Flex>
 
