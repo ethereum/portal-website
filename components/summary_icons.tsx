@@ -21,17 +21,17 @@ const SummaryIcons = () => {
 
         <Flex gap={150} py={24} wrap={"wrap"} justifyContent={"center"} alignItems={"center"}>
             <SummaryCard
-                title={"Fast syncing"}
+                title={"Near-instant sync"}
                 description={"View a summary of all your clients over the last month."}
                 icon={<Rocket size={96} />}
             />
             <SummaryCard
-                title={"Basic hardware"}
+                title={"Small devices"}
                 description={"View a summary of all your clients over the last month."}
                 icon={<Laptop size={96} />}
             />
             <SummaryCard
-                title={"Residential internet"}
+                title={"Low bandwidth "}
                 description={"View a summary of all your clients over the last month."}
                 icon={<Home size={96} />}
             />
