@@ -1,0 +1,47 @@
+import { PortalUSP } from 'components/pop'
+
+## What is the Portal Network?
+
+<br />
+<br />
+<PortalUSP />
+<br />
+
+Ethereum users have two options: 
+
+- dedicate a non-trivial amount of computing resources and bandwidth to running an Ethereum node
+- trust a centralized third-party (such as an RPC provider) to provide Ethereum data
+
+The Portal Network introduces a third option for Ethereum users: 
+- access Ethereum data in a decentralized way with minimal hardware and bandwidth requirements.
+
+The Portal Network is a peer-to-peer protocol that runs parallel to Ethereum. Ethereum data is **distributed across the Portal Network**, instead of being copied in every individual node. 
+This allows users to access Ethereum data with minimal hardware and bandwidth requirements and almost instant syncing.
+
+
+## How does Portal work?
+
+The Portal Network is actually several peer-to-peer networks (state, beacon, and history networks) that can be accessed using a Portal Network [client](../clients). 
+Each of these networks stores a specific subset of the data stored by an Ethereum full node. 
+Each individual Portal client only stores a tiny fraction of each type of data. 
+However, the Portal Network (the complete set of nodes) stores **all** the historical Ethereum data spanning from genesis right up to within a block or two of the head of the chain.
+
+When you request data from your Ethereum node, you are looking up some specific information in your local copy of the blockchain. If you request data through an RPC provider,
+you look it up in someone else's stored copy of the blockchain (and they may manipulate it or track you as they handle the request and response). When you request data from your Portal node, 
+the request is broadcast across the network from peer to peer, until it eventually reaches the node storing the specific information you want. This node then returns the response to you. 
+There are no intermediaries, and no centralized participants need to store large amounts of chain data or handle large numbers of requests.
+
+## Why is Portal Network important?
+
+Syncing Ethereum full nodes involves downloading hundreds of gigabytes of history and state data, verifying it and storing it locally. 
+This requires the node operator to dedicate substantial CPU, network bandwidth (1TB per month), hard disk storage (1+ TB of SSD) and RAM in order to run the node. This
+disincentivizes many people from participating fully in the network. This is a centralizing force because it pushes users to third parties that
+abstract away the hardware and bandwidth requirement, but at the cost of adding a trusted intermediary between the user and the network.  
+To maximally decentralize of the network, the barriers to participation must become negligible.
+
+One solution to this problem is to serve light clients, which get their data from RPC calls to Ethereum full nodes. However, full nodes 
+are required to serve those requests, and history has demonstrated that few node operators do this for altruistic reasons alone.
+Instead, the need for lightweight access to Ethereum has to be addressed using a whole new network architecture where clients are light by default
+and the complexity and storage requirements are absorbed by the network rather than the individual nodes. 
+The Portal Network is this newly architected system.
+
