@@ -1,10 +1,10 @@
     {
         "index": "Home",
         "overview": "Overview",
+        "concepts": "Concepts",
         "clients": "Clients",
         "tooling": "Tooling",
-        "community": "Community",
         "resources": "Resources",
-        "faq": "FAQ",
+        "community": "Community",
         "blog": "Blog"
     }
