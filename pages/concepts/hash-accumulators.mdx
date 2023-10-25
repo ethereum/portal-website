@@ -36,7 +36,7 @@ The accumulator only processes non-uncle blocks A-F, so the node will be able to
 
 ### Accumulator
 
-The "Header Accumulator" is a double-batched Merkle log accumulator.
+The "Header Accumulator" is a [double-batched Merkle log accumulator](https://ethresear.ch/t/double-batched-merkle-log-accumulator/571).
 This data structure is designed to allow nodes in the network to "forget" the deeper history of the chain, while still being able to reliably receive historical headers with a proof that the received header is indeed from the canonical chain. 
 There are actually two accumulators: an epoch accumulator and a master accumulator. Each block header is appended to the epoch accumulator until the epoch ends. 
 At the end of the epoch, the root hash of the collection of block headers in the epoch accumulator is computed and added to the master accumulator. 
@@ -59,13 +59,13 @@ flowchart TD
 
 ```
 
-For post-merge blocks, there is an equivalent accumulator ('historical_roots`) already built into the main Ethereum chain, with the hashes being available in Beacon blocks.
+For post-merge blocks, there is an [equivalent accumulator](https://eth2book.info/capella/annotated-spec/#historicalsummary) already built into the main Ethereum chain, with the hashes being available in Beacon blocks.
 This means portal clients do not have to implement their own accumulator for post-merge blocks, they can simply query Beacon data.
 
 ### Proofs
 
 Proofs are used to verify some data against the accumulator. 
-A Merkle proof is generated using the hash of the block being verified as a leaf node and the root hash of the relevant epoch accumulator as the root.
+A [Merkle proof](https://pangea.cloud/docs/audit/merkle-trees) is generated using the hash of the block being verified as a leaf node and the root hash of the relevant epoch accumulator as the root.
 The root hash of the epoch accumulator is the 'digest' and it is found in the master accumulator.
 The proof asserts that a given hash is part of the accumulator. The accumulator is known to uniquely include canonical Ethereum data. 
 Therefore, the proof demonstrates that a given block is canonical. Fake blocks and uncle blocks cannot produce valid proofs.
@@ -80,3 +80,5 @@ The pre-merge accumulator only has to be built once, so it can be shipped with c
 
 For post-merge data, clients can make RPC calls to an Ethereum node to obtain the relevant hashes. 
 When the Portal Beacon Network is fully implemented, portal clients will be able to access this data without relying on access to an Ethereum node.
+
+You can check the individual client documentation to see how each client implements their accumulators.
