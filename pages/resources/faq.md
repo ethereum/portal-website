@@ -1,7 +1,7 @@
 # FAQ:
 
 ## How can you help contribute to ETH Portal Network development?
-The ETH Portal Network development effort is an open, multi-team effort. If you're interested in helping contribute towards the desgin and implementation, join the ongoing discussion happening on the discord server
+The ETH Portal Network development effort is an open, multi-team effort. If you're interested in helping contribute towards the desgin and implementation, join the ongoing discussion happening on the Discord server
 There is also a weekly call Mondays @ 15.30 UTC, where we discuss the latest developments and open questions.
 
 ## What is the Portal?
