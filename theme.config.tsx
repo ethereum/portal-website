@@ -12,6 +12,9 @@ const config: DocsThemeConfig = {
   docsRepositoryBase: 'https://github.com/ethereum/portal-website/tree/master',
   footer: {
     text: 'Portal Network docs',
+  },
+  sidebar: {
+    defaultMenuCollapseLevel: 1
   }
 };
 
