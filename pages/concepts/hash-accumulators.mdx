@@ -74,11 +74,10 @@ Proofs can be provided alongside any historical block data on the Portal Network
 
 ## Implementation
 
-The Portal Network specification does not define precisely how Portal clients acquire a master version of the accumulator to check new data against. 
-It is expected that clients will likely maintain a 'frozen' copy of the pre-merge accumulator as this data can never change or grow and can be handled as a static dataset.
+The Portal Network specification intentionally does not dictate how Portal clients acquire a master version of the accumulator to check new data against.
+Most clients will likely maintain a 'frozen' copy of the pre-merge accumulator as this data can never change or grow and can be handled as a static dataset.
 The pre-merge accumulator only has to be built once, so it can be shipped with client code. Anyone can rebuild the accumulator to verify those hardcoded into clients using an Ethereum node. 
 
-For post-merge data, clients can make RPC calls to an Ethereum node to obtain the relevant hashes. 
-When the Portal Beacon Network is fully implemented, portal clients will be able to access this data without relying on access to an Ethereum node.
+For post-merge data, clients will be able to retrieve proofs from the Portal Beacon Network which is currently under active development.
 
 You can check the individual client documentation to see how each client implements their accumulators.
