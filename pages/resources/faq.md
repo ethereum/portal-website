@@ -8,22 +8,6 @@ The Portal Network will be comprised of one or more decentralized peer-to-peer n
 The original pitch for Portal focused on delivering a network that allowed clients to serve JSON-RPC requests by fetching data on demand from Portal. Recently we've come to understand that this use case will likely be difficult based on network latencies, forcing us to re-evaluate our roadmap. 
 Portal is still building the same functionality needed to serve JSON-RPC but we expect the performance of the initial versions of the network to be too slow to compete with centralized providers.
 
-## What can I do with Portal Network today?
-
-## Where is Portal Network going from here?
-
-## Why develop three clients in parallel?
-
-## With Ethereum's state constantly growing, won't Portal clients eventually stop being light?
-
-## How do you know Portal data is from the canonical Ethereum chain?
-
-## Could Portal Network be a blob storage layer?
-
-## Could Portal Network be a history storage layer?
-
-## Why is Ethereum data separated across multiple networks/sub-protocols?
-
 ## Why do we need the Portal network?
 This effort is motivated by two overlapping goals.
 
