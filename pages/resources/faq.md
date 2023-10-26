@@ -2,12 +2,27 @@
 
 ## What is the Portal Network?
 "Portal Network" is an in-progress effort to enable lightweight protocol access to resource-constrained devices. The term "portal" indicates that these networks provide a view into the protocol but are not critical to the operation of the core Ethereum protocol.
-
 The Portal Network will be comprised of one or more decentralized peer-to-peer networks which together provide the data and functionality necessary to expose the standard JSON-RPC API. These networks are being specially designed to ensure that clients participating in these networks can do so with minimal expenditure of networking bandwidth, CPU, RAM, and HDD resources.
 
 ## Why don't Portal clients implement the full Ethereum JSON-RPC API?
 The original pitch for Portal focused on delivering a network that allowed clients to serve JSON-RPC requests by fetching data on demand from Portal. Recently we've come to understand that this use case will likely be difficult based on network latencies, forcing us to re-evaluate our roadmap. 
 Portal is still building the same functionality needed to serve JSON-RPC but we expect the performance of the initial versions of the network to be too slow to compete with centralized providers.
+
+## What can I do with Portal Network today?
+
+## Where is Portal Network going from here?
+
+## Why develop three clients in parallel?
+
+## With Ethereum's state constantly growing, won't Portal clients eventually stop being light?
+
+## How do you know Portal data is from the canonical Ethereum chain?
+
+## Could Portal Network be a blob storage layer?
+
+## Could Portal Network be a history storage layer?
+
+## Why is Ethereum data separated across multiple networks/sub-protocols?
 
 ## Why do we need the Portal network?
 This effort is motivated by two overlapping goals.
