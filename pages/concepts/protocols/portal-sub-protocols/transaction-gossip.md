@@ -1,5 +1,7 @@
 # Transaction Gossip Network
 
+***Note that this network is not yet fully production-ready***
+
 The transaction gossip network is designed with the following requirements.
 
 - Transaction payloads that are being passed around the network are "self validating", meaning that they include both the transaction object and a proof against the ethereum state adequate to validate `sender.balance` and `sender.nonce` values.

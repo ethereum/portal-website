@@ -1,5 +1,7 @@
 # Execution State Network
 
+***Note that this network is not yet fully production-ready***
+
 State data from the execution chain consists of all account data from the main Ethereum storage trie, all contract storage data from all of the individual contract storage tries, and the individul bytecodes for all contracts.
 
 This network allows users to look up account balances and contract code and storage values.

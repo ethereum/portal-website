@@ -1,5 +1,7 @@
 # History Network
 
+***Note that this network is not yet fully production-ready***
+
 The chain history data consists of historical **block headers**, **block bodies** (transactions and ommer) and **block receipts**.
 It is expected that this network will one day allow clients that have pruned historical blocks to retrieve them on-demand from this network, and nodes may be able to use blocks downloaded from the History Network to sync, rather than maintaining a local copy of the blockchain. 
 
