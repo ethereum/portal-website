@@ -1,14 +1,11 @@
 # FAQ:
 
-## How can you help contribute to ETH Portal Network development?
-The ETH Portal Network development effort is an open, multi-team effort. If you're interested in helping contribute towards the desgin and implementation, join the ongoing discussion happening on the Discord server
-There is also a weekly call Mondays @ 15.30 UTC, where we discuss the latest developments and open questions.
+## What is the Portal Network?
+"Portal Network" is an in-progress effort to enable lightweight protocol access to resource-constrained devices. The term "portal" indicates that these networks provide a view into the protocol but are not critical to the operation of the core Ethereum protocol.
 
-## What is the Portal?
-"Portal " is an in-progress effort to enable lightweight protocol access to resource-constrained devices. The term "portal" indicates that these networks provide a view into the protocol but are not critical to the operation of the core Ethereum protocol.
 The Portal Network will be comprised of one or more decentralized peer-to-peer networks which together provide the data and functionality necessary to expose the standard JSON-RPC API. These networks are being specially designed to ensure that clients participating in these networks can do so with minimal expenditure of networking bandwidth, CPU, RAM, and HDD resources.
 
-## What happened to the original JSON-RPC API-based Portal Network use case?
+## Why don't Portal clients implement the full Ethereum JSON-RPC API?
 The original pitch for Portal focused on delivering a network that allowed clients to serve JSON-RPC requests by fetching data on demand from Portal. Recently we've come to understand that this use case will likely be difficult based on network latencies, forcing us to re-evaluate our roadmap. 
 Portal is still building the same functionality needed to serve JSON-RPC but we expect the performance of the initial versions of the network to be too slow to compete with centralized providers.
 
@@ -34,3 +31,8 @@ Using financial incentives is a natural choice for many crypto/blockchain protoc
 The problem with financial incentives is they are complex and difficult to implement correctly. They also provide mechanisms for people to game the system and extract value rather than contribute towards overall network health. The Portal Network relies on producing a useful, lightweight client for developers, along with altruism and laziness, to encourage network adoption and sufficient computing resources.
 "Never underestimate the power of laziness and software defaults" - Piper
 Protocols like BitTorrent and IPFS are proof that this is a feasible strategy. Furthermore, protocols like Filecoin and The Graph Network already exist that use financial incentives to accomplish similar goals to the Portal Network.
+
+## How can you help contribute to ETH Portal Network development?
+
+The ETH Portal Network development effort is an open, multi-team effort. If you're interested in helping contribute towards the desgin and implementation, join the ongoing discussion happening on the discord server
+There is also a weekly call Mondays @ 15.30 UTC, where we discuss the latest developments and open questions.
