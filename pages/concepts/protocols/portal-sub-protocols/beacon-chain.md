@@ -1,5 +1,7 @@
 # Beacon Network
 
+***Note that this network is not yet fully production-ready***
+
 The Beacon Network serves data from the Beacon Chain (Ethereum's consensus protocol) designed to support light clients. 
 Light weight nodes and Portal clients will be able to keep up to date with the Ethereum chain and check the canonicality of their post-merge blocks using data retrieved this network.
 
