@@ -39,7 +39,6 @@ Block headers are retrieved from the network by specifying a content key generat
 #### Block Body
 
 The block body contains the complete list of transactions that were included in the block and the list of ommers (blocks produced simultaneously but not included in the canonical chain). The encoding for block bodies changed at the Shanghai upgrade (see [EIP-4895](https://eips.ethereum.org/EIPS/eip-4895)), meaning Portal clients now have to detect whether a block is pre-Shanghai or post-Shanghai to determine how they should be decoded. Clients that request block bodies from the History Network execute this sequence of operations:
- need to support multiple encodings for the block body content type. For the time being,
 
 - Receive raw block body content.
 - Fetch the block's header from the network.
