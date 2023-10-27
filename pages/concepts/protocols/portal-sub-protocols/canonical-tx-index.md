@@ -1,6 +1,6 @@
 # Canonical Transaction Index Network
 
-***Note that this network is not yet fully production-ready***
+***Note that this network is in the planning phase. It's possible that the spec will change significantly.***
 
 The canonical transaction index consists of a mapping from transaction hash to the canonical block hash within which the transaction was included and the index of the transaction within the set of transactions executed within that block.
 

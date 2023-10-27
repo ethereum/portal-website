@@ -1,6 +1,6 @@
 # Transaction Gossip Network
 
-***Note that this network is not yet fully production-ready***
+***Note that this network is in the planning phase. It's possible that the spec will change significantly.***
 
 The transaction gossip network is designed with the following requirements.
 
