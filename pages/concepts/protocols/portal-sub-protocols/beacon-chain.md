@@ -1,9 +1,9 @@
 # Beacon Network
 
-***Note that this network is not yet fully production-ready***
+***Note that this network is not production-ready***
 
 The Beacon Network serves data from the Beacon Chain (Ethereum's consensus protocol) designed to support light clients. 
-Light weight nodes and Portal clients will be able to keep up to date with the Ethereum chain and check the canonicality of their post-merge blocks using data retrieved this network.
+Lightweight nodes and Portal clients will be able to use the data retrieved from this network to determine which blocks have made it on-chain, according to validators. This only applies to post-merge blocks.
 
 The Beacon Network is a [Kademlia](../kademlia.mdx) DHT that forms an overlay network on top of the [Discovery v5](https://github.com/ethereum/devp2p/blob/master/discv5/discv5-wire.md) network. 
 
