@@ -1,30 +1,57 @@
 # FAQ:
 
 ## What is the Portal Network?
-"Portal Network" is an in-progress effort to enable lightweight protocol access to resource-constrained devices. The term "portal" indicates that these networks provide a view into the protocol but are not critical to the operation of the core Ethereum protocol.
-The Portal Network will be comprised of one or more decentralized peer-to-peer networks which together provide the data and functionality necessary to expose the standard JSON-RPC API. These networks are being specially designed to ensure that clients participating in these networks can do so with minimal expenditure of networking bandwidth, CPU, RAM, and HDD resources.
+
+Portal Network is an effort to enable extremely lighweight, decentralized access to Ethereum. Ever wanted to access deep historical data but don't fancy paying for 12TB of storage or waiting weeks to sync an archive node? Don't want to trust a third party provider to provide the data for you? Portal Network is the answer. Ever wanted to run a light client on a phone or super lightweight device without relying on a centralized RPC provider? Portal Network is the answer to that too. 
+
+Portal Network is a set of interconnected nodes, each of whom store a small fraction of the total Ethereum data. When you request data from your node, the request is relayed across the network until it finds a node who can serve it. Then the data is sent back to you peer-to-peer. This means no individual node has to store a local copy of the entire blockchain - the data is distributed across the whole network. The Portal design ensures that nodes participating in the network can do so with minimal expenditure of network bandwidth, CPU, RAM, and hard disk resources.
+
+The term "portal" indicates that this networks provide a view into the Ethereum protocol but Ethereum is not reliant upon Portal noides for its own operation.
 
 ## Why don't Portal clients implement the full Ethereum JSON-RPC API?
-The original pitch for Portal focused on delivering a network that allowed clients to serve JSON-RPC requests by fetching data on demand from Portal. Recently we've come to understand that this use case will likely be difficult based on network latencies, forcing us to re-evaluate our roadmap. 
-Portal is still building the same functionality needed to serve JSON-RPC but we expect the performance of the initial versions of the network to be too slow to compete with centralized providers.
+
+The original idea for Portal focused on allowing super lightweight Portal clients to expose the full Ethereum JSON-RPC API as a decentralized competitor to centralized providers. However, due to unavoidable network latencies, Portal can't really compete with the speed of centralized providers for several important RPC endpoints. This meant that, while the Ethereum JSON-RPC API will be implemented in Portal clients, the main value proposition comes from providing extremely lightweight, decentralized access to Ethereum history, state and transaction data. This will be used to support light and eventually stateless clients, provide history storage, generate proofs on demand and many other services that strength Ethereum and lower the barrier to entry for users. 
 
 ## What can I do with Portal Network today?
 
+Portal Network is still in development. Today you can download and run one of three clients and use them to access historical block data (block header, bodies and receipts) but the network is not yet fully populated with data and proof of canonicality is only available fro pre-merge blocks.
+We expect the history network to be the first fully production-ready network.
+
+Other networks are in earlier development and being actively worked on by the Portal teams. You are welcome to help us build!
+
 ## Where is Portal Network going from here?
+
+We intend to develop all five subprotocols into production-ready public networks, starting with the History Network. The State network is the next priority so that we can support light clients. Building out this core infrastructure is our primary goal. We believe many use cases will emerge when the infrastructure is in place and we anticipate working with Ethereum client developers and application developers wanting to develop truly decentralized backends for their products.
+
 
 ## Why develop three clients in parallel?
 
-## With Ethereum's state constantly growing, won't Portal clients eventually stop being light?
+Having three clients being developed simultaneously in threee languages by independent teams is a great way to bootstrap resilience-by-diversity into the network. If a bug emerges in one client, the network can continue using nodes running the other clients. Having multi-client interoperability as a foundation from day one helps us to avoid building myopically, and also allows for a more diverse range of developers to make open source contributions.
+
+## With Ethereum's state and history constantly growing, won't Portal clients eventually stop being light?
+
+Until statelessness is shipped, Ethereum's state and history will continue to grow, and this will increase the total network storage for Portal Network. However, we anticipate this being ameliorated by growth in adoption of Portal clients that will help distribute that storage more widely. We also anticipate growing our developer community and finding more efficient storage methods. Eventually, Ethereum will ship stateless clients which will solve the issue of state and history growth.
+
 
 ## How do you know Portal data is from the canonical Ethereum chain?
 
+
+
 ## Could Portal Network be a blob storage layer?
+
+In theory a Portal sub-protocol could be implemnted to provide long term blob storage in support of Ethereum rollups. However, this is not ojn the near-term roadmap.
 
 ## Could Portal Network be a history storage layer?
 
+Yes! The Portal History Network will serve block header, block bodies and receipts, which ios all that is required to support history expiry proposals such as EIP-4444.
+
+
 ## Why is Ethereum data separated across multiple networks/sub-protocols?
 
+
+
 ## Why do we need the Portal network?
+
 This effort is motivated by two overlapping goals.
 
 ### Full Functionality for Stateless Clients
