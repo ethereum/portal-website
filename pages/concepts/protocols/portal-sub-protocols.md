@@ -8,5 +8,3 @@ The Portal sub-protocols are:
 - [History](./portal-sub-protocols/history.md)
 - [Beacon](./portal-sub-protocols/beacon.md)
 - [State](./portal-sub-protocols/state.md)
-- [Transaction gossip](./portal-sub-protocols/transaction-gossip.md)
-- [Canonical transaction index](./portal-sub-protocols/canonical-tx-index.md)
