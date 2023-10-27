@@ -1,7 +1,5 @@
 {
     "history": "History",
     "beacon-chain": "Beacon",
-    "state": "State",
-    "transaction-gossip": "Transaction gossip",
-    "canonical-tx-index": "Canonical transaction index"
+    "state": "State"
 }
