@@ -1,4 +1,5 @@
 {
+  "portal-sub-protocols": "Portal Sub-protocols",
   "kademlia": "Kademlia",
   "discovery": "Discovery",
   "json_rpc": "JSON-RPC API",
