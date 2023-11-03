@@ -39,4 +39,7 @@ When you use a higher level API method such as `eth_getBlockHash` the client mak
 
 ## Identifying sub-protocols
 
-Content keys are specific to each sub-protocol. This means that a request has to have a way to be specific to a
+Content keys are specific to each sub-protocol. This means that a request has to have a way to be specific to a particular protocol. Since each sub-protocol establishes its own independently-managed DHT, routing requests to the right sub-protocol happens in the client simply by having API methods specific to each sub-protocol. For example, methods in the `history_` namespace interact with the History network only, and are only exposed in clients that have the history sub-protocl enabled.
+
+Read more on content keys in the [Portal Network specification](https://github.com/ethereum/portal-network-specs/blob/master/README.md). You can also follow our [tutorial](../resources/tutorials/query-history.md) for making low-level API requests passing content keys to Trin.
+
