@@ -1,6 +1,5 @@
 # Content Keys
 
-
 > Content keys are a compact way to specify which piece of data you want to access in a request to the Portal Network. 
 
 As a user, you will usually make requests to Portal nodes using higher level APIs such as the Ethereum JSON-RPC API. This API exposes methods such as `eth_getBlockByHash`. In an Ethereum node, this API acts as an entry point into an algorithm that looks up a specific block hash in the node's local blockchain database. However, an equivalent request to a Portal node does not trigger a lookup in a local database, because there *is no local database*. The data is retrieved from other nodes on the network. 
