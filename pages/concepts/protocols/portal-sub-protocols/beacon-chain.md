@@ -46,4 +46,4 @@ To verify canonicalness of an execution block header older than ~27 hours, we ne
 
 ## Specification
 
-Read the fuill specification for the Beacon network on the [Portal Network Github](https://github.com/ethereum/portal-network-specs/blob/master/beacon-chain/beacon-network.md)
+Read the full specification for the Beacon network on the [Portal Network Github](https://github.com/ethereum/portal-network-specs/blob/master/beacon-chain/beacon-network.md)
