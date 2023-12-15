@@ -6,5 +6,8 @@
         "tooling": "Tooling",
         "resources": "Resources",
         "community": "Community",
-        "blog": "Blog"
+        "blog": {
+            "title": "Blog",
+            "href": "https://blog.ethportal.net"
+        }
     }
