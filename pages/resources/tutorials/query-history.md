@@ -27,7 +27,7 @@ There are specific instructions for installing Trin in the next section.
 
 Trin turns your computer into a Portal Network node, meaning it can relay requests to other nodes on the network. Your request is passed around the network until it reaches a node storing the specific information you need. Then, that node sends the data to you.
 
-The easiest way to get Trin is to clone the [Github repository](https://github.com/ethereum/trin) and follow the installation instructions in the [Trin book](https://ethereum.github.io/trin/users/index.html).
+The easiest way to get Trin is to clone the [Github repository](https://github.com/ethereum/trin) and follow the installation instructions in the [Trin book](https://ethereum.github.io/trin/developers/quick_setup.html).
 
 Your command to start Trin with HTTP enabled is:
 
