@@ -24,7 +24,7 @@ basic types (e.g., bits, bools, unsigned integers).
 |Container|Holds many different specified items| Items are spaced into 32 byte partitions|
 |Union|Holds one of many different specified items| Item kind is specified using a prepended selector byte|
 
-Each type can hold any of the other types, so a Containter can hold a List
+Each type can hold any of the other types, so a Container can hold a List
 and a Union, and the Union can hold another Container, etc.
 Anything that is put into one of the types above must itself be SSZ-able
 
