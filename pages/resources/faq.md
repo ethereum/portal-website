@@ -26,7 +26,7 @@ We intend to develop all five subprotocols into production-ready public networks
 
 ## Why develop three clients in parallel?
 
-Having three clients being developed simultaneously in threee languages by independent teams is a great way to bootstrap resilience-by-diversity into the network. If a bug emerges in one client, the network can continue using nodes running the other clients. Having multi-client interoperability as a foundation from day one helps us to avoid building myopically, and also allows for a more diverse range of developers to make open source contributions.
+Having three clients being developed simultaneously in three languages by independent teams is a great way to bootstrap resilience-by-diversity into the network. If a bug emerges in one client, the network can continue using nodes running the other clients. Having multi-client interoperability as a foundation from day one helps us to avoid building myopically, and also allows for a more diverse range of developers to make open source contributions.
 
 ## With Ethereum's state and history constantly growing, won't Portal clients eventually stop being light?
 
@@ -66,6 +66,6 @@ The problem with financial incentives is they are complex and difficult to imple
 
 ## How can you help contribute to ETH Portal Network development?
 
-The ETH Portal Network development effort is an open, multi-team effort. If you're interested in helping contribute towards the desgin and implementation, join the ongoing discussion happening on the [Discord server](https://discord.gg/rHruRsbgeY).
+The ETH Portal Network development effort is an open, multi-team effort. If you're interested in helping contribute towards the design and implementation, join the ongoing discussion happening on the [Discord server](https://discord.gg/rHruRsbgeY).
 
 There is also an open weekly call Mondays @ 15.30 UTC, where we discuss the latest developments and open questions.
