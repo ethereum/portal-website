@@ -24,9 +24,9 @@ Other networks are in earlier development and being actively worked on by the Po
 We intend to develop all five subprotocols into production-ready public networks, starting with the History Network. The State network is the next priority so that we can support light clients. Building out this core infrastructure is our primary goal. We believe many use cases will emerge when the infrastructure is in place and we anticipate working with Ethereum client developers and application developers wanting to develop truly decentralized backends for their products.
 
 
-## Why develop mutiple clients in parallel?
+## Why develop multiple clients in parallel?
 
-Having mutiple clients being developed simultaneously in mutiple languages by independent teams is a great way to bootstrap resilience-by-diversity into the network. If a bug emerges in one client, the network can continue using nodes running the other clients. Having multi-client interoperability as a foundation from day one helps us to avoid building myopically, and also allows for a more diverse range of developers to make open source contributions.
+Having multiple clients being developed simultaneously in multiple languages by independent teams is a great way to bootstrap resilience-by-diversity into the network. If a bug emerges in one client, the network can continue using nodes running the other clients. Having multi-client interoperability as a foundation from day one helps us to avoid building myopically, and also allows for a more diverse range of developers to make open source contributions.
 
 ## With Ethereum's state and history constantly growing, won't Portal clients eventually stop being light?
 
