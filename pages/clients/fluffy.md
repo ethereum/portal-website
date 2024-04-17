@@ -14,7 +14,7 @@ You can download Fluffy from the [project Github](https://github.com/status-im/n
 
 ## Fluffy documentation
 
-You can read the notes in the [Github README](https://github.com/status-im/nimbus-eth1/tree/master/fluffy)!
+You can read the [Fluffy guide](https://fluffy.guide)!
 
 There you will find instructions for installing, running and interacting with Fluffy for your operating system.
 
