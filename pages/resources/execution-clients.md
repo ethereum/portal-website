@@ -1,9 +1,9 @@
 # Execution
 
-The Portal network is a new foundation for Ethereum execution client
+The Portal Network is a new foundation for Ethereum execution client
 architecture that fundamentally fixes many inherent limitations imposed by the
 original DevP2P based architecture. The goal of this blog post will be to
-explore what those limitations are, how the Portal network solves them, and
+explore what those limitations are, how the Portal Network solves them, and
 what the resulting execution client looks like when built off of this new
 architecture.
 
@@ -95,7 +95,7 @@ the DevP2P network imposes on clients.
 - A full copy of the block bodies and receipts
 - A full and up-to-date copy of the state
 
-Additionally, it imposes the following additional *implicite* requirements.
+Additionally, it imposes the following additional *implicit* requirements.
 
 - A full index mapping block numbers to their canonical block hash
 - A state database that is suitable for serving the SNAP sync protocol
