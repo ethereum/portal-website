@@ -171,17 +171,67 @@ fetch data fromm the network.  This is an area of research that hasn't been
 thoroughly explored by our execution client teams because of the limitations
 and requirements placed on their clients by the DevP2P protocol.
 
-### New Architecture, New Clients, New Research
+## New Capabilities
 
-This new architecture for Ethereum execution clients has been underway for a
-long time and has been starting to come online over the last year. We expect
-our networks to be at an MVP stage by the end of 2024.  This means that our
-networks will have all of the data necessary to sync an execution client and to
-serve the majority of the standard JSON-RPC API. By the end of 2025 we expect
-to have real progress towards in-protocol use cases such as a drop in
-replacement for staking nodes.  This seems to be one of the areas where Portal
-architecture can solve a real pain point in how people use execution clients.
+Lets look at what kind of new capabilities the Portal Network architecture
+opens up for execution clients.
 
-Along the way, we expect to see new areas of research open up in the client
-design space.  Portal allows for new novel ways for a client to manage the data
-it stores on disk which previously were not possible.  
+### Reduction in historical storage
+
+One of the simplest capabilities that this new architecture provides is the
+ability to discard historical block data. This data accounts for around 500GB
+disk usage by a synced execution client.
+
+A Portal client that is part of the history network would allocate a fixed
+amount of storage they wish to offer the network.  As a participant of this
+network they can then access any of the historical block data on demand by
+simply looking up which nodes in the network should be storing the block data
+and requesting it from them. The only cost to the client or user is network
+latency in the time it takes to retrieve the block data.
+
+An execution client that wishes to still be apart of the DevP2P network prior
+to the adoption of EIP-4444 could choose to proxy any incoming requests from
+the DevP2P network into the porrtal network in order to remain capable of
+serving requested data while still taking advantage of the Portal architecture.
+
+The History Network is capable of serving all of the following.
+
+- Headers addressed by the block hash
+- Headers addressed by the block number
+- Bodies addressed by the block hash
+- Receipts addressed by the block hash
+
+As with every piece of data stored in the Portal network, everything is
+cryptographically anchored to the canonical Ethereum blockchain.
+
+
+### Tracking the beacon chain HEAD
+
+Running a beacon node alongside an execution client can be cumbersom.  Over
+time, many execution clients may choose to include an embedded beacon chain
+client or light client, meaning that their execution client would be both apart
+of the DevP2P network and the LibP2P network that the beacon chain operates on.
+
+An alternative would be to use the Portal Beacon Network, which implements the
+beacon chain lightclient syncing protocol.  An execution client that wishes to
+follow the beacon chain only needs be apart of this singular network to do so.
+Any execution client that is already integrating with the Portal Network
+protocols can save themselves from also needing to be part of the LibP2P
+network and the maintenance overhead of a third P2P stack by using the Portal
+Beacon Network.
+
+### Reduction of state storage and management overhead
+
+> Note that most of the State Network components of Portal are under active
+> development and may be in varying stages of readyness.
+
+The State Network component of Portal is by far the largest and most complex,
+and for good reason.  Handling the state data in Ethereum is complex and
+difficult.  The goal of the State Network in portal is to offload that
+complexity to the network itself, giving clients a higher degree of freedom in
+how that store and handle this data.
+
+An execution client that wishes to reduce it's overall state storage can choose
+to fetch state data on demand from the Portal State Network.  The network
+supports on demand retrieval of arbitrary state data, including an archival
+view of this data for all historical blocks.
