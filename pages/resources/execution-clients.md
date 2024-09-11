@@ -235,3 +235,44 @@ An execution client that wishes to reduce it's overall state storage can choose
 to fetch state data on demand from the Portal State Network.  The network
 supports on demand retrieval of arbitrary state data, including an archival
 view of this data for all historical blocks.
+
+## New challenges for client design
+
+There are also areas where the Portal architecture introduces new challenges
+for client design.
+
+### Trade off between latency and performance
+
+As mentioned, one of the key features of Portal is the ability to trade
+performance between network latency and local storage. Each piece of data that
+is fetched from the network costs latency and performance.  This is an open
+area of research so it is expected to be a rapidly evolving field since the
+very first portal based execution clients are being built.  Caching will likely
+play a big role in this.  
+
+One concrete example might be the retrieval of a specific transaction within a
+specific block.  The initial lookup and retrieval costs a few network round
+trips to lookup what block the transaction is contained in, followed by the
+retrieval of that block's header, followed by the retrieval of the block body
+containing the transaction itself.  An intelligent caching strategy would
+likely include keeping all of this data in a cache locally so that future
+requests for that data can be served directly from disk.
+
+More intelligent caching strategies will likely be needed for the state data. A
+client would likely want to keep a list of *hot* acccounts for which it
+continually maintains an up-to-date local copy of the account state. This would
+be useful for any commonly accessed account such as in wallet use cases.
+
+The most advanced strategies will likely involve keeping some kind of *cold* /
+*hot* information about the ethereum state itself, so that truly cold state can
+be dropped to reduce the overall state size with zero impact on normal EVM
+execution. This type of approach will likely be needed for use of Portal based
+execution clients in protocol use cases like staking.  In such cases it will be
+important to maintain peak performance. It is also worth noting that use cases
+such as these will need to take into account attack vectors such as a
+transaction intentionally accessing a large amount of cold state, causing the
+executing client to fall behind on block processing due to not having a full
+local copy of the state.
+
+Caching strategies for Portal clients will be an active area of research and
+development for a long time as new approaches are tried and measured.
