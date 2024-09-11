@@ -1,25 +1,16 @@
-
-The design of the Portal Network has grown organically over the last years.
-What originated as an idea in my head has now been written down in the form of
-our [specifications](https://github.com/ethereum/portal-network-specs) and
-codified in the form of [multiple](https://github.com/optimism-java/shisui)
-[different](https://github.com/ethereumjs/ultralight)
-[client](https://github.com/status-im/nimbus-eth1/tree/master/fluffy)
-[implementations](https://github.com/ethereum/trin/).  Today, I am taking a
-stab at trying to write down some of the overall protocol design requirements
-that have emerged during this process.
+# Design Requirements for Portal SubNetworks
 
 At it's core, the Portal Network is a specialized storage network for
 Ethereum's data.  It is a distributed peer-to-peer network where all nodes in
 the network participate in storing and serving data.  The ongoing health of the
-network depends on our protocol designs following these rules.
+network depends on our protocol designs adhering to the following requirements.
 
-### Provable Data Only
+## Provable Data Only
 
 All data stored in the network must be able to be cryptographically anchored
 such that it can be proven to be correct.  For example, a block header is
 addressed by it's block hash, and upon retrieval, the header can then be proven
-to be the correct data by taking the `keccak(header)` and verifying that it
+to be the correct data by taking the `keccak(rlp(header))` and verifying that it
 matches the expected hash.
 
 This requirment ensures that the network can only be used to store the intended
@@ -28,20 +19,20 @@ service attacks.  Without this requirement the network could be abused by
 people attempting to store other types of data, or attacked by people trying to
 fill the network's storage capacity up with garbage data.
 
-### Canonical Data Only
+## Canonical Data Only
 
 All data stored in the network must be canonically anchored.  This requirement
 is similar to the previous "Provable Data Only", however is a bit more specific
 in that it requires all data to not only be provable, but also canonical.  An
 example of this would be the header for a non-canonical block which are often
-referred to as ommers (which is the gender nuetral term for uncle).  
+referred to as ommers (which is the gender nuetral term for aunt or uncle).  
 
 An example of this is our use of [double batched merkle log
 accumulators](https://github.com/ethereum/EIPs/pull/8277).  These allow us to
 easily prove an individual block header is part of the canonical chain of
-headers.  This also leads us to our next requirement...
+headers.
 
-### Easy To Prove
+## Easy To Prove
 
 Some things are provable, but not easy to prove.  An example of this is proving
 that any individual block header is canonical.  The naive approach to proving a
@@ -59,7 +50,7 @@ of hashes.
 In general, this principle must apply to all data in our networks.
 
 
-### Amplification Attacks
+## Amplification Attacks
 
 As we look at the various proof requirements, one "trap" that is easy to fall
 into is the introduction of what is referred to as an "amplification attack".
@@ -79,21 +70,17 @@ out a bunch of even larger payloads, effectively amplifying the amount of
 bandwidth needed to execute this attack.
 
 
-### Evenly Distributed Data
+## Evenly Distributed Data
 
 The Portal Network is a fancy DHT.  This DHT has a 256 bit address space, and
-all content within the portal network *lives* at a certain location in this
-address space.  Data in the portal network is required to be evenly distributed
-across this address space.  This is how we ensure that individual nodes in the
-network are able to effectively choose how much data they are willing to store
-for the network.
+all content within the portal network has a `content-id` which dictates its
+location in this address space.  Data in the portal network is required to be
+evenly distributed across this address space.  This is how we ensure that
+individual nodes in the network are able to effectively choose how much data
+they are willing to store for the network.
 
 If our addressing scheme does not evenly distribute the data then we would end
 up with areas of the address space where there is significantly more data than
 other areas of the network.  We refer to such areas as *"hot spots"*.  Nodes in
 the DHT that found themselves very close to these hot spots would end up being
-responsible for a disporportionately large amount of data.  And since
-individual node addresses in the DHT are uniformly and randomly distributed,
-this would mean that data in this region would be replicated less and more
-likely to be distcarded from those nodes storage as more and more data gets
-assigned to that area of the network.
+responsible for a disporportionately large amount of data.
