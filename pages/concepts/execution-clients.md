@@ -229,7 +229,7 @@ Beacon Network.
 
 The State Network component of Portal is by far the largest and most complex,
 and for good reason.  Handling the state data in Ethereum is complex and
-difficult.  The goal of the State Network in portal is to offload that
+difficult.  The goal of the State Network in Portal is to offload that
 complexity to the network itself, giving clients a higher degree of freedom in
 how that store and handle this data.
 
