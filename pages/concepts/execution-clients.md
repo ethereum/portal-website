@@ -52,10 +52,11 @@ which despite it's name, is not very fast.  This method involves starting at
 the state root of the HEAD block and walking the full trie, individually
 fetching every single node in the trie.  This approach has been superceded by
 "snap sync" which instead involves fetching a full snapshot of only the "leaf"
-data from the trie.  Once a full copy of the state has been obtained, clients
-can then keep their state database up-to-date by executing every new block
-added to the chain and recording the changes to the state database that result
-from block execution.
+data from the trie.  The efficiency of snap sync is that it fetches data in
+contiguous chunks rather than as individual trie nodes.  Once a full copy of
+the state has been obtained, clients can then keep their state database
+up-to-date by executing every new block added to the chain and recording the
+changes to the state database that result from block execution.
 
 This leads us to the last set of client requiremments for syncing.
 
@@ -97,7 +98,9 @@ the DevP2P network imposes on clients.
 Additionally, it imposes the following additional *implicit* requirements.
 
 - A full index mapping block numbers to their canonical block hash
-- A state database that is suitable for serving the SNAP sync protocol
+- A state database that is suitable for serving the SNAP sync protocol which
+  requires the ability to efficiently fetch contiguous sections of the state
+  trie data by their key range.
 
 There are also additional implicit bandwidth requirements such as:
 
@@ -121,7 +124,7 @@ software.
 
 This leads us to the reframing of what the Portal Network is.  The messaging to
 date has been heavy with "light client".  While Portal Network is aimed at
-lightweight Ethereum clients, it would be a massive understatement to say that
+lightweight Ethereum clients, it would be an understatement to say that
 this is what the Portal Network primarily does.  In fact, "lightweight" clients
 are more of a side effect.
 
