@@ -83,4 +83,4 @@ If our addressing scheme does not evenly distribute the data then we would end
 up with areas of the address space where there is significantly more data than
 other areas of the network.  We refer to such areas as *"hot spots"*.  Nodes in
 the DHT that found themselves very close to these hot spots would end up being
-responsible for a disporportionately large amount of data.
+responsible for a disproportionately large amount of data.
