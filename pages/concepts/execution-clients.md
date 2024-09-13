@@ -2,10 +2,9 @@
 
 The Portal Network is a new foundation for Ethereum execution client
 architecture that fundamentally fixes many inherent limitations imposed by the
-original DevP2P based architecture. The goal of this blog post will be to
-explore what those limitations are, how the Portal Network solves them, and
-what the resulting execution client looks like when built off of this new
-architecture.
+original DevP2P based architecture. Here we  explore what those limitations
+are, how the Portal Network solves them, and what the resulting execution
+client looks like when built off of this new architecture.
 
 ## Execution Client Requirements
 
