@@ -169,7 +169,7 @@ to discard the data that is rarely or never accessed, while choosing to also
 keep around the data that is accessed most often locally on disk.  Such a
 client may be able to discard a significant portion of the overall data set
 while also avoiding most or all of the performance implications of having to
-fetch data fromm the network.  This is an area of research that hasn't been
+fetch data from the network.  This is an area of research that hasn't been
 thoroughly explored by our execution client teams because of the limitations
 and requirements placed on their clients by the DevP2P protocol.
 
