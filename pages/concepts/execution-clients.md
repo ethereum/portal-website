@@ -249,7 +249,7 @@ As mentioned, one of the key features of Portal is the ability to trade
 performance between network latency and local storage. Each piece of data that
 is fetched from the network costs latency and performance.  This is an open
 area of research so it is expected to be a rapidly evolving field since the
-very first portal based execution clients are being built.  Caching will likely
+very first Portal based execution clients are being built.  Caching will likely
 play a big role in this.  
 
 One concrete example might be the retrieval of a specific transaction within a
