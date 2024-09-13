@@ -193,7 +193,7 @@ latency in the time it takes to retrieve the block data.
 
 An execution client that wishes to still be apart of the DevP2P network prior
 to the adoption of EIP-4444 could choose to proxy any incoming requests from
-the DevP2P network into the porrtal network in order to remain capable of
+the DevP2P network into the Portal network in order to remain capable of
 serving requested data while still taking advantage of the Portal architecture.
 
 The History Network is capable of serving all of the following.
