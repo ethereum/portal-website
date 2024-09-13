@@ -13,7 +13,7 @@ addressed by it's block hash, and upon retrieval, the header can then be proven
 to be the correct data by taking the `keccak(rlp(header))` and verifying that it
 matches the expected hash.
 
-This requirment ensures that the network can only be used to store the intended
+This requirement ensures that the network can only be used to store the intended
 data, which protects it against both spam and certain categories of denial of
 service attacks.  Without this requirement the network could be abused by
 people attempting to store other types of data, or attacked by people trying to
