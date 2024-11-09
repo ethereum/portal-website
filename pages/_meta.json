@@ -1,6 +1,7 @@
     {
         "index": "Home",
         "overview": "Overview",
+        "run": "Run",
         "concepts": "Concepts",
         "clients": "Clients",
         "tooling": "Tooling",
