@@ -81,4 +81,4 @@ The network supports the following mechanisms for data retrieval:
 
 ## Specification
 
-You can find the History Network specification on the [Portal Network Github](https://github.com/ethereum/portal-network-specs/blob/master/history-network.md).
+You can find the History Network specification on the [Portal Network Github](https://github.com/ethereum/portal-network-specs/blob/master/history/history-network.md).

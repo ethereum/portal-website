@@ -27,4 +27,4 @@ The network stores the full execution layer state which encompasses the followin
 
 ## Specification
 
-You can read the full specification on the [Portal Network Github](https://github.com/ethereum/portal-network-specs/blob/master/state-network.md).
+You can read the full specification on the [Portal Network Github](https://github.com/ethereum/portal-network-specs/blob/master/state/state-network.md).
