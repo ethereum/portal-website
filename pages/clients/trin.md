@@ -4,8 +4,6 @@ Trin is an implementation of a [Portal Network client](https://github.com/ethere
 
 You would use Trin to interact with the Portal Network. This gives access to Ethereum data with very low CPU and memory requirements and near instant sync.
 
-Trin is still in active developmenmt - it is not ready for production use!
-
 
 ## Get Trin
 
