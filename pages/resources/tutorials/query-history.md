@@ -103,7 +103,7 @@ curl -X POST --data '{"jsonrpc":"2.0", "method": "portal_historyRecursiveFindCon
 
 The response arrives as hex encoded bytes. In order to make the response human-readable, you need to decode it. There are several ways to do this. You can visit an online RLP decoder such as [codechain.github.io/rlp-debugger](https://codechain-io.github.io/rlp-debugger/) or keep following this guide to write a small script in Rust to handle it for you.
 
-> Note: This won't always be necessary - later when the `eth_getBlockByHash` method is implemented you will be able to request human-readable data directly! You can already use `eth_getBlockByHash` in the Fluffy client.
+> Note: This won't always be necessary - later when the `eth_getBlockByHash` method is implemented you will be able to request human-readable data directly! You can already use `eth_getBlockByHash` in the Nimbus Portal client.
 
 Start by creating a new directory called `decoder`.
 

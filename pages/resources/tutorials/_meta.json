@@ -1,4 +1,4 @@
 {
     "query-history": "Retrieving historical headers using Trin",
-    "query-block-fluffy": "Retrieving block data with Fluffy"
+    "query-block-nimbus-portal": "Retrieving block data with the Nimbus Portal client"
 }

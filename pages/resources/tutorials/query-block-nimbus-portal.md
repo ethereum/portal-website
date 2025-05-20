@@ -1,14 +1,14 @@
-# Retrieving block bodies using Fluffy
+# Retrieving block bodies using Nimbus Portal client
 
 The Portal Network aims to provide a decentralized store of historical Ethereum data. It does this by distributing data across the network. Your Portal Network client provides you with a window into the network and request specific data from other nodes. In this guide you will learn how to start a Portal Network client and request some historical data. You will:
 
-- Install and run Fluffy
+- Install and run the Nimbus Portal client
 - Learn how to retrieve data from your node
 - Learn how to decode Portal Network data
 
 ## Prerequisites
 
-To retrieve data from the Portal network, you need to run a Portal client. In this tutorial you will use Fluffy. Fluffy is written in Nim.
+To retrieve data from the Portal network, you need to run a Portal client. In this tutorial you will use the Nimbus Portal client. This client is written in Nim.
 
 There are several options for how you send requests to your node. In this guide you will learn how to use HTTP to send requests. The requests are formatted as JSON data, and you will send them to your node using a tool called `curl`.
 
@@ -17,46 +17,46 @@ The responses arrive at your node encoded, so you also have to decode them to ma
 To follow this guide you need to have the following installed on your machine:
 
 - [cURL](https://curl.se/)
-- [Fluffy](https://github.com/status-im/nimbus-eth1)
+- [Nimbus](https://github.com/status-im/nimbus-eth1)
 
-There are specific instructions for installing Fluffy in the next section.
+There are specific instructions for installing the Nimbus Portal client in the next section.
 
 
-## Install Fluffy
+## Install Nimbus Portal client
 
-Fluffy turns your computer into a Portal Network node, meaning it can relay requests to other nodes on the network. Your request is passed around the network until it reaches a node storing the specific information you need. Then, that node sends the data to you.
+The Nimbus Portal client turns your computer into a Portal Network node, meaning it can relay requests to other nodes on the network. Your request is passed around the network until it reaches a node storing the specific information you need. Then, that node sends the data to you.
 
-The easiest way to get Fluffy is to clone the Github repository using:
+The easiest way to get the Nimbus Portal client is to clone the Github repository using:
 
 ```sh
 git clone https://github.com/status-im/nimbus-eth1.git
 ```
 
-With Fluffy downloaded, you can build the executable by running the following command:
+Now you can build the executable by running the following command:
 
 ```sh
 cd nimbus-eth1 && \
-make fluffy
+make nimbus_portal_client
 ```
 
-This will create a `fluffy` binary in `./build/fluffy`. You can run Fluffy from there, or move the binary into a more convenient location.
+This will create a `nimbus_portal_client` binary in `./build/nimbus_portal_client`. You can run `nimbus_portal_client` from there, or move the binary into a more convenient location.
 
-You can now run Fluffy! You will need to pass some flags to Fluffy to enable your node to join the network using some bootstrap nodes that use the same IP range, and to enable RPC requests.
+You can now run the Nimbus Portal client! You will need to pass some flags to client to enable your node to join the network using some bootstrap nodes that use the same IP range, and to enable RPC requests.
 
 ```sh
-./build/fluffy --rpc --table-ip-limit:1024 --bucket-ip-limit:24
+./build/nimbus_portal_client --rpc
 ```
 
-By default, Fluffy exposes `http://localhost:8545` for HTTP traffic.
+By default, the Nimbus Portal client exposes `http://localhost:8545` for HTTP traffic.
 
-You can leave Fluffy running for the remainder of this tutorial.
+You can leave the client running for the remainder of this tutorial.
 
 
 ## Making a request
 
 The Portal network has its own set of [RPC methods](https://github.com/ethereum/portal-network-specs/blob/master/jsonrpc/README.md) that are used to look up specific data on the network. 
 
-Fluffy implements a subset of the standard Ethereum JSON RPC methods, including `eth_getBlockByHash`. This will return block body data in human-readable form given a block hash.
+The Nimbus Portal client implements a subset of the standard Ethereum JSON RPC methods, including `eth_getBlockByHash`. This will return block body data in human-readable form given a block hash.
 
 Ethereum clients serve these requests by querying their own local copy of the Ethereum blockchain data. However, Portal clients do not have local Ethereum data to query. This means the request is routed through a set of Portal Network specific methods that relay the query to other nodes on the network. In this case, to serve the `eth_getBlockByhash` request the client is doing multiple `portal_historyRecursiveFindContent` calls to search the network for the block header and the block body.
 
@@ -182,10 +182,10 @@ To look for the corresponding block body you can repeat the same search but repl
 ## Summary
 
 Well done! You have retrieved and decoded historical Ethereum data using your super lightweight Portal client!
-Without using Portal Network, this same operation would require you to run a full Ethereum node or use a centralized RPC provider - instead you have done it in a decentralized and super lightweight way using Fluffy!
+Without using Portal Network, this same operation would require you to run a full Ethereum node or use a centralized RPC provider - instead you have done it in a decentralized and super lightweight way using the Nimbus Portal client!
 
 In this guide you learned:
 
-- How to run Fluffy
+- How to run the Nimbus Portal client
 - How to format a JSON RPC request
 - How to send a request over HTTP
