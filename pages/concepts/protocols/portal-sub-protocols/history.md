@@ -5,7 +5,7 @@
 The chain history data consists of historical **block headers**, **block bodies** (transactions and ommer) and **block receipts**.
 It is expected that this network will one day allow clients that have pruned historical blocks to retrieve them on-demand from this network, and nodes may be able to use blocks downloaded from the History Network to sync, rather than maintaining a local copy of the blockchain. 
 
-The History Network is a [Kademlia](../kademlia.mdx) DHT that uses the [Portal Wire Protocol](./portal-wire-protocol.md) to establish an overlay network on top of the [Discovery v5](../discovery.mdx) protocol.
+The History Network is a [Kademlia](../kademlia.mdx) DHT that uses the [Portal Wire Protocol](../portal_wire.mdx) to establish an overlay network on top of the [Discovery v5](../discovery.mdx) protocol.
 
 The History Network also provides a [hash accumulator](../../hash-accumulators.mdx) that enables clients to verify that a header is at a particular block number in the pre-merge Ethereum mainnet chain.
 
