@@ -1,0 +1,7 @@
+export default {
+  protocols: 'Protocols',
+  'content-keys': 'Content Keys',
+  'hash-accumulators': 'Hash Accumulators',
+  'design-requirements': 'Design Requirements',
+  'execution-clients': 'Execution Clients',
+}

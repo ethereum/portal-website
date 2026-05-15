@@ -1,0 +1,9 @@
+export default {
+  'portal-sub-protocols': 'Portal Sub-protocols',
+  kademlia: 'Kademlia',
+  discovery: 'Discovery',
+  json_rpc: 'JSON-RPC API',
+  portal_wire: 'Portal Wire',
+  ssz: 'SSZ',
+  utp: 'uTP',
+}

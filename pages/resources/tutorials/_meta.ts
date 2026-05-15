@@ -1,0 +1,4 @@
+export default {
+  'query-history': 'Retrieving historical headers using Trin',
+  'query-block-nimbus-portal': 'Retrieving block data with the Nimbus Portal client',
+}
