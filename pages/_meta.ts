@@ -1,0 +1,14 @@
+export default {
+  index: 'Home',
+  overview: 'Overview',
+  run: 'Run',
+  concepts: 'Concepts',
+  clients: 'Clients',
+  tooling: 'Tooling',
+  resources: 'Resources',
+  community: 'Community',
+  blog: {
+    title: 'Blog',
+    href: 'https://blog.ethportal.net',
+  },
+}

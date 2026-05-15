@@ -1,0 +1,7 @@
+export default {
+  trin: 'Trin',
+  'nimbus-portal': 'Nimbus',
+  ultralight: 'Ultralight',
+  shisui: 'Shisui',
+  'bridge-nodes': 'Bridge Nodes',
+}
